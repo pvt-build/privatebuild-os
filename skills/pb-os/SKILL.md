@@ -1,6 +1,16 @@
 ---
 name: pb-os
-description: La puerta de entrada de Private Build OS — el sistema de los 8 sistemas de un negocio de servicios, coaching o consultoría (Foundations, Oferta, Avatar, Contenido, Captura, Ventas, Entrega, Success). Hace el diagnóstico de las 8 áreas, escribe el Documento de contexto, arma el Notion completo (hub, 8 páginas de área y 6 bases), encuentra el cuello y manda a la skill del área que toca. También corre la revisión semanal y configura el cruce con ChatGPT. Úsala SIEMPRE que el cliente diga "arrancar private build os", "diagnóstico de mi negocio", "por dónde parto", "no sé qué hacer ahora", "qué área está rota", "mi tablero", "revisión semanal", "configurar GPT", "conectar ChatGPT", "actualiza las skills" o traiga algo sin saber a qué área pertenece. No construye las piezas de un área: eso lo hace la pb-* de esa área.
+description: >-
+  La puerta de entrada de Private Build OS — el sistema de los 8 sistemas de un negocio
+  de servicios, coaching o consultoría (Foundations, Oferta, Avatar, Contenido, Captura,
+  Ventas, Entrega, Success). Hace el diagnóstico de las 8 áreas, escribe el Documento de
+  contexto, arma el Notion completo (hub, 8 páginas de área y 6 bases), encuentra el
+  cuello y manda a la skill del área que toca. También corre la revisión semanal y
+  configura el cruce con ChatGPT. Úsala SIEMPRE que el cliente diga "arrancar private
+  build os", "diagnóstico de mi negocio", "por dónde parto", "no sé qué hacer ahora",
+  "qué área está rota", "mi tablero", "revisión semanal", "configurar GPT", "conectar
+  ChatGPT", "actualiza las skills" o traiga algo sin saber a qué área pertenece. No
+  construye las piezas de un área: eso lo hace la pb-* de esa área.
 ---
 
 # pb-os — Private Build OS: la puerta de entrada

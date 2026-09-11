@@ -1,6 +1,16 @@
 ---
 name: pb-entrega
-description: Área 07 · Entrega de Private Build OS — cumplir lo que vendiste sin que te cueste la semana. Arma promesa de entrega por fase, checklist de onboarding, roadmap por cliente, ritmo de sesiones, SOP de lo que se repite y cierre con paso a recompra. Baja cada sesión (Fathom, Zoom, Meet o notas) a Notion con compromisos, bloqueos y próximos pasos, y convierte en proceso lo que ya explicaste tres veces. Úsala cuando digas "diseña mi entrega", "¿el onboarding de X está hecho?", "arma el roadmap de X", "baja esta sesión", "procesa este transcript", "prepárame para la sesión con X", "esto ya lo expliqué tres veces", "estoy entregando de más", "audita mi entrega". No arma oferta ni precio (pb-oferta), no conduce la venta (pb-ventas), no mide renovación (pb-success).
+description: >-
+  Área 07 · Entrega de Private Build OS — cumplir lo que vendiste sin que te cueste la
+  semana. Arma promesa de entrega por fase, checklist de onboarding, roadmap por
+  cliente, ritmo de sesiones, SOP de lo que se repite y cierre con paso a recompra. Baja
+  cada sesión (Fathom, Zoom, Meet o notas) a Notion con compromisos, bloqueos y próximos
+  pasos, y convierte en proceso lo que ya explicaste tres veces. Úsala cuando digas
+  "diseña mi entrega", "¿el onboarding de X está hecho?", "arma el roadmap de X", "baja
+  esta sesión", "procesa este transcript", "prepárame para la sesión con X", "esto ya lo
+  expliqué tres veces", "estoy entregando de más", "audita mi entrega". No arma oferta
+  ni precio (pb-oferta), no conduce la venta (pb-ventas), no mide renovación (pb-
+  success).
 ---
 
 # pb-entrega — Entrega: cumplir sin que te cueste la semana

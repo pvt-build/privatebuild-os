@@ -1,6 +1,17 @@
 ---
 name: pb-success
-description: Área 08 · Success de Private Build OS, el loop que sostiene a las demás. Mide si tus clientes vuelven a comprar con 4 medidores leídos del registro, procesa la base 🔁 Aprendizajes y devuelve cada corrección al área que la tiene que aplicar, marca el cuello, dice qué cliente está listo para renovar, subir o referir y cuál está en riesgo, y convierte un resultado real en caso de éxito con cifra y sistema. Úsala cuando digas "revisión del loop", "procesa los aprendizajes", "qué área está fallando", "cuál es mi cuello", "quién va a renovar", "quién está en riesgo", "a quién le pido un referido", "mi cliente no renovó", "arma el caso de éxito de X", "diagnostica success". No reescribe la oferta (pb-oferta), no redefine al avatar (pb-avatar), no produce contenido (pb-contenido), no rediseña la entrega (pb-entrega) ni conduce la llamada de renovación (pb-ventas): les entrega la corrección.
+description: >-
+  Área 08 · Success de Private Build OS, el loop que sostiene a las demás. Mide si tus
+  clientes vuelven a comprar con 4 medidores leídos del registro, procesa la base 🔁
+  Aprendizajes y devuelve cada corrección al área que la tiene que aplicar, marca el
+  cuello, dice qué cliente está listo para renovar, subir o referir y cuál está en
+  riesgo, y convierte un resultado real en caso de éxito con cifra y sistema. Úsala
+  cuando digas "revisión del loop", "procesa los aprendizajes", "qué área está
+  fallando", "cuál es mi cuello", "quién va a renovar", "quién está en riesgo", "a quién
+  le pido un referido", "mi cliente no renovó", "arma el caso de éxito de X",
+  "diagnostica success". No reescribe la oferta (pb-oferta), no redefine al avatar (pb-
+  avatar), no produce contenido (pb-contenido), no rediseña la entrega (pb-entrega) ni
+  conduce la llamada de renovación (pb-ventas): les entrega la corrección.
 ---
 
 # pb-success — Success: el loop que sostiene a los otros siete
