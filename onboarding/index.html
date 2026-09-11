@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Onboarding · Private Build OS</title>
+<meta name="description" content="Instala los 8 sistemas de tu negocio en Claude, conéctalos a Notion y cruza con GPT. Paso a paso, sin saber programar.">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+ --bg:#1C1113;--card:rgba(255,255,255,.055);--sunk:rgba(255,255,255,.035);
+ --line:rgba(255,168,164,.15);--line-strong:rgba(229,50,45,.55);
+ --ink:#F6F1F0;--text:#DBCECB;--muted:#B6A8A6;
+ --red:#E5322D;--red-bright:#FF4A45;--red-soft:rgba(229,50,45,.15);
+ --green:#3DDC84;--green-soft:rgba(61,220,132,.12);
+ --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+ --sans:ui-sans-serif,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+ --ease:cubic-bezier(.32,.72,0,1)}
+html{background:var(--bg)}
+body{min-height:100vh;color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;
+ background:
+  radial-gradient(1000px 560px at 10% -8%,rgba(229,50,45,.24),transparent 62%),
+  radial-gradient(800px 520px at 95% 6%,rgba(229,50,45,.11),transparent 60%),
+  linear-gradient(180deg,#231516 0%,#1C1113 40%,#180E10 100%);
+ background-attachment:fixed}
+a{color:var(--red-bright)}
+.top{position:sticky;top:0;z-index:60;background:rgba(28,17,19,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.topin{max-width:880px;margin:0 auto;padding:12px 22px;display:flex;align-items:center;gap:16px}
+.brand{display:flex;flex-direction:column;line-height:1.1;text-decoration:none}
+.brand b{font-weight:800;font-size:13px;letter-spacing:.1em;color:var(--red-bright);text-transform:uppercase}
+.brand span{font-size:10px;color:var(--muted);letter-spacing:.03em}
+.ctx{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.prog{margin-left:auto;display:flex;align-items:center;gap:12px}
+.pbar{width:130px;height:6px;border-radius:4px;background:rgba(255,255,255,.08);overflow:hidden}
+.pbar i{display:block;height:100%;width:100%;transform:scaleX(0);transform-origin:left;background:linear-gradient(90deg,var(--red),var(--red-bright));transition:transform .45s var(--ease)}
+.pval{font-family:var(--mono);font-weight:700;font-size:13px;color:var(--ink);min-width:40px;text-align:right}
+.wrap{max-width:880px;margin:0 auto;padding:40px 22px 90px}
+.hero{margin-bottom:30px}
+.meta{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:18px;display:flex;flex-wrap:wrap;gap:6px 18px}
+.meta b{color:var(--red-bright);font-weight:600}
+h1{font-size:clamp(30px,5.4vw,50px);font-weight:800;color:var(--ink);letter-spacing:-.03em;line-height:1.04}
+h1 em{font-style:normal;color:var(--red-bright)}
+.hero p{color:var(--text);font-size:16.5px;margin-top:16px;max-width:62ch}
+.tesis{display:flex;gap:14px;background:var(--card);border:1px solid var(--line);border-left:3px solid var(--red);border-radius:14px;padding:17px 19px;margin-top:22px}
+.tesis .i{font-size:20px;line-height:1.3}
+.tesis .t{font-size:14.5px;line-height:1.55}.tesis b{color:var(--ink)}
+code,.kbd{font-family:var(--mono);font-size:.92em;background:rgba(255,255,255,.08);border:1px solid var(--line);border-radius:6px;padding:1px 7px;color:var(--ink)}
+.phase{background:var(--card);border:1px solid var(--line);border-radius:18px;margin-top:18px;overflow:hidden}
+.ph-h{display:flex;align-items:center;gap:13px;padding:16px 20px;border-bottom:1px solid var(--line);background:var(--sunk)}
+.ph-h .n{font-family:var(--mono);font-weight:700;font-size:13px;width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:var(--red-soft);border:1px solid var(--line-strong);color:var(--red-bright);flex:0 0 auto}
+.ph-h h2{font-size:16.5px;color:var(--ink);font-weight:700;letter-spacing:-.01em}
+.ph-h .tm{margin-left:auto;font-size:10.5px;color:var(--muted);font-family:var(--mono);letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--line);padding:4px 10px;border-radius:20px;white-space:nowrap}
+.ph-intro{font-size:14px;color:var(--text);padding:15px 20px 0;line-height:1.55}
+.ph-intro b{color:var(--ink)}
+.items{padding:6px 20px 14px}
+.item{display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-top:1px dashed var(--line);cursor:pointer}
+.item:first-child{border-top:none}
+.cbox{flex:0 0 auto;width:24px;height:24px;border-radius:7px;border:1.5px solid rgba(255,168,164,.35);display:flex;align-items:center;justify-content:center;color:#140c0d;font-size:14px;font-weight:800;margin-top:1px;transition:.2s var(--ease)}
+.item:hover .cbox{border-color:var(--red-bright)}
+.item.done .cbox{background:var(--green);border-color:var(--green)}
+.item.done .cbox:after{content:"✓"}
+.txt{flex:1;min-width:0}
+.tt{font-size:15px;color:var(--ink);font-weight:600;line-height:1.4}
+.item.done .tt{color:var(--muted);text-decoration:line-through;text-decoration-color:rgba(255,255,255,.2)}
+.ds{font-size:13.5px;color:var(--muted);margin-top:4px;line-height:1.55}
+.ds b{color:var(--text)}
+.ds a{font-weight:600;text-decoration:none}
+.ds a:hover{text-decoration:underline}
+.say{display:block;margin-top:9px;font-family:var(--mono);font-size:13px;color:var(--ink);background:rgba(0,0,0,.28);border:1px solid var(--line);border-radius:11px;padding:12px 14px 46px;line-height:1.5;position:relative;overflow-wrap:anywhere;white-space:pre-wrap;cursor:text}
+.say small{display:block;font-family:var(--sans);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--red-bright);font-weight:700;margin-bottom:7px}
+.say.long{max-height:260px;overflow:auto}
+.copybtn{position:absolute;bottom:9px;right:9px;display:inline-flex;align-items:center;gap:6px;font-family:var(--sans);font-weight:700;font-size:12px;color:#fff;background:var(--red);border:none;border-radius:8px;padding:7px 14px;cursor:pointer;transition:.15s var(--ease)}
+.say.long .copybtn{position:sticky;float:right;bottom:0;margin-top:8px}
+.copybtn:hover{background:var(--red-bright);transform:translateY(-1px)}
+.copybtn:active{transform:scale(.97)}
+.copybtn.done{background:#1f9d57}
+.tip{display:flex;gap:11px;margin:4px 20px 16px;background:var(--green-soft);border:1px solid rgba(61,220,132,.25);border-radius:12px;padding:12px 15px;font-size:13.5px;color:#bff3d5;line-height:1.55}
+.tip b{color:#e3fbee}
+.note{font-size:13px;color:var(--muted);background:var(--sunk);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:0 20px 16px;line-height:1.55}
+.note b{color:var(--text)}
+/* cómo funciona */
+.roles{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding:16px 20px 18px}
+.role{border:1px solid var(--line);border-radius:13px;padding:14px;background:var(--sunk);border-top:2px solid var(--line)}
+.role.on{border-top-color:var(--red)}
+.role .k{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.role .v{font-size:15px;font-weight:700;color:var(--ink);margin-top:4px}
+.role p{font-size:12.5px;color:var(--muted);margin-top:6px;line-height:1.45}
+/* mapa de áreas */
+.areas{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:16px 20px 18px}
+.area{border:1px solid var(--line);border-radius:12px;padding:12px;background:var(--sunk)}
+.area .no{font-family:var(--mono);font-size:10.5px;color:var(--red-bright);letter-spacing:.1em}
+.area .nm{font-weight:700;color:var(--ink);font-size:14px;margin-top:2px}
+.area .pr{font-size:12px;color:var(--muted);margin-top:4px;line-height:1.4}
+.area .sk{font-family:var(--mono);font-size:11px;color:var(--text);margin-top:8px;opacity:.8}
+.area.entry{grid-column:1/-1;display:flex;align-items:center;gap:14px;border-color:var(--line-strong);background:var(--red-soft)}
+.area.entry .pr{margin:0}
+.loopnote{font-size:12.5px;color:var(--muted);padding:0 20px 18px;line-height:1.5}
+.loopnote b{color:var(--text)}
+.done-banner{display:none;text-align:center;border:1px solid var(--line-strong);background:linear-gradient(140deg,rgba(229,50,45,.28),rgba(229,50,45,.08));border-radius:18px;padding:28px;margin-top:22px;color:var(--ink)}
+.done-banner.on{display:block;animation:pop .45s var(--ease)}
+@keyframes pop{from{opacity:0;transform:scale(.97)}to{opacity:1;transform:none}}
+.done-banner h3{font-size:21px;letter-spacing:-.01em}
+.done-banner p{color:var(--text);font-size:14.5px;margin-top:8px}
+.foot{max-width:880px;margin:0 auto;padding:22px;color:var(--muted);font-size:12px;border-top:1px solid var(--line);text-align:center;font-family:var(--mono);letter-spacing:.04em}
+.foot a{color:var(--muted)}
+.reset{background:none;border:none;color:var(--muted);font-family:var(--mono);font-size:11px;cursor:pointer;text-decoration:underline;margin-left:8px}
+@media(max-width:720px){.roles,.areas{grid-template-columns:1fr 1fr}.ctx{display:none}.pbar{width:70px}.ph-h .tm{display:none}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<div class="top"><div class="topin">
+ <a class="brand" href="https://github.com/pvt-build/privatebuild-os"><b>Private Build</b><span>Private Build OS</span></a>
+ <span class="ctx">Onboarding · 8 sistemas</span>
+ <div class="prog"><div class="pbar"><i id="pbar"></i></div><span class="pval" id="pval">0%</span></div>
+</div></div>
+
+<main class="wrap">
+ <header class="hero">
+  <div class="meta"><span><b>Manual</b> para founders</span><span>~40 min</span><span>sin saber programar</span></div>
+  <h1>Los 8 sistemas de tu negocio,<br><em>instalados en tu IA</em></h1>
+  <p>Vas a instalar 9 skills en Claude —una por cada área de tu negocio y una de entrada—, conectarlas a tu Notion para que nada viva en tu cabeza, y sumar a ChatGPT como segunda opinión. La IA hace la parte técnica. Tú copias, pegas y respondes.</p>
+  <div class="tesis"><span class="i">◆</span><span class="t"><b>El resumen:</b> haz el Paso 2 (una línea). Después escribe <code>arrancar private build os</code> y la IA te lleva de la mano: diagnostica tus 8 áreas, arma tu Notion y te dice cuál tocar primero. Este es tu mapa; la IA es tu copiloto.</span></div>
+ </header>
+
+ <section class="phase" aria-labelledby="h-como">
+  <div class="ph-h"><span class="n">◎</span><h2 id="h-como">Cómo funciona</h2><span class="tm">en 1 vistazo</span></div>
+  <div class="roles">
+   <div class="role on"><div class="k">Claude</div><div class="v">Construye</div><p>Arma cada pieza del área con el método: tu oferta, tu avatar, tu guion de llamada.</p></div>
+   <div class="role"><div class="k">Notion</div><div class="v">Recuerda</div><p>Todo queda escrito en tu página 🏗️ Private Build OS. Lo que no quedó ahí, no pasó.</p></div>
+   <div class="role"><div class="k">ChatGPT</div><div class="v">Audita</div><p>Segunda opinión sobre lo importante, con el mismo criterio. No construye en paralelo.</p></div>
+   <div class="role"><div class="k">Tú</div><div class="v">Decides</div><p>Aceptas o rechazas cada punto. La IA ordena tu criterio, no lo reemplaza.</p></div>
+  </div>
+ </section>
+
+ <section class="phase" aria-labelledby="h-mapa">
+  <div class="ph-h"><span class="n">8</span><h2 id="h-mapa">Lo que vas a instalar</h2><span class="tm">9 skills</span></div>
+  <div class="areas">
+   <div class="area entry"><div><div class="no">ENTRADA</div><div class="nm">pb-os</div></div><div class="pr">Diagnostica las 8 áreas, arma tu Notion, encuentra el cuello y te manda a la skill que toca.</div></div>
+   <div class="area"><div class="no">01</div><div class="nm">Foundations</div><div class="pr">La lógica del negocio y hacia dónde va</div><div class="sk">pb-foundations</div></div>
+   <div class="area"><div class="no">02</div><div class="nm">Oferta</div><div class="pr">Qué vendes y a qué precio</div><div class="sk">pb-oferta</div></div>
+   <div class="area"><div class="no">03</div><div class="nm">Avatar</div><div class="pr">A quién le vendes y a quién no</div><div class="sk">pb-avatar</div></div>
+   <div class="area"><div class="no">04</div><div class="nm">Contenido</div><div class="pr">Cómo llegan los correctos hasta ti</div><div class="sk">pb-contenido</div></div>
+   <div class="area"><div class="no">05</div><div class="nm">Captura</div><div class="pr">Dónde quedan los que te escriben</div><div class="sk">pb-captura</div></div>
+   <div class="area"><div class="no">06</div><div class="nm">Ventas</div><div class="pr">Conducir la conversación hasta el sí</div><div class="sk">pb-ventas</div></div>
+   <div class="area"><div class="no">07</div><div class="nm">Entrega</div><div class="pr">Cumplir sin que te cueste la semana</div><div class="sk">pb-entrega</div></div>
+   <div class="area"><div class="no">08</div><div class="nm">Success</div><div class="pr">El loop que sostiene a los otros siete</div><div class="sk">pb-success</div></div>
+  </div>
+  <p class="loopnote">Las siete primeras van en orden. <b>La octava no viene después: viene encima</b> — mide lo que las otras produjeron y devuelve la corrección a cada una.</p>
+ </section>
+
+ <section class="phase" aria-labelledby="h-1">
+  <div class="ph-h"><span class="n">1</span><h2 id="h-1">Instala Claude (una sola vez)</h2><span class="tm">~5 min</span></div>
+  <div class="items">
+   <div class="item"><span class="cbox"></span><div class="txt"><div class="tt">Descarga la app de Claude</div><div class="ds">Se instala como cualquier programa. <a href="https://claude.ai/download" target="_blank" rel="noopener">Descargar Claude ↗</a></div></div></div>
+   <div class="item"><span class="cbox"></span><div class="txt"><div class="tt">Abre la pestaña <span class="kbd">Code</span></div><div class="ds">Es donde Claude puede instalar cosas en tu computador. Todo lo que sigue se pega ahí. Elige cualquier carpeta cuando te la pida — no importa cuál.</div></div></div>
+  </div>
+ </section>
+
+ <section class="phase" aria-labelledby="h-2">
+  <div class="ph-h"><span class="n">2</span><h2 id="h-2">Instala las 9 skills</h2><span class="tm">~3 min</span></div>
+  <div class="items">
+   <div class="item"><span class="cbox"></span><div class="txt"><div class="tt">Copia y pega esta línea en Claude</div><div class="ds">Presiona enter. No necesitas entender qué dice: Claude la corre y te avisa cuando termina.</div><span class="say"><small>Copia y pega en Claude</small>npx skills add https://github.com/pvt-build/privatebuild-os -g -a claude-code -y</span><div class="ds" style="margin-top:7px">Si Claude te dice que falta <b>Node</b>, respóndele <i>"instálalo"</i> y vuelve a pegar la línea.</div></div></div>
+   <div class="item"><span class="cbox"></span><div class="txt"><div class="tt">Cierra y abre la app</div><div class="ds">Las skills se cargan al abrir. Sin este paso, Claude no las ve.</div></div></div>
+   <div class="item"><span class="cbox"></span><div class="txt"><div class="tt">Comprueba que quedaron</div><div class="ds">Debe nombrar <b>pb-os</b> y las 8 <b>pb-</b> de área.</div><span class="say">¿Qué skills tienes disponibles?</span></div></div>
+  </div>
+  <div class="tip"><span>✓</span><div><b>Se actualizan solas cuando tú quieras.</b> Cuando mejoremos el método, le dices a Claude <i>"actualiza las skills"</i> y tienes la última versión — sin descargar nada.</div></div>
+ </section>
+
+ <section class="phase" aria-labelledby="h-3">
+  <div class="ph-h"><span class="n">3</span><h2 id="h-3">Conecta tu Notion</h2><span class="tm">~3 min</span></div>
+  <p class="ph-intro">Notion es la memoria del sistema: ahí queda cada pieza que construyas, y de ahí la leen Claude y ChatGPT. <b>Si no tienes cuenta,</b> créala gratis en <a href="https://www.notion.so" target="_blank" rel="noopener">notion.so ↗</a> antes de seguir.</p>
+  <div class="items">
+   <div class="item"><span class="cbox"></span><div class="txt"><div class="tt">En Claude: Configuración → Conectores → Notion → Conectar</div><div class="ds">Se abre tu navegador. Entras a Notion como siempre y tocas <b>"Permitir"</b>. Dale acceso a todo tu espacio o, como mínimo, a una página vacía donde quieras que viva el sistema.</div></div></div>
+   <div class="item"><span class="cbox"></span><div class="txt"><div class="tt">Comprueba la conexión</div><div class="ds">Abre una sesión nueva en Code y pega:</div><span class="say">¿Tienes acceso a mi Notion? Busca cualquier página y dime su nombre.</span></div></div>
+  </div>
+ </section>
+
+ <section class="phase" aria-labelledby="h-4">
+  <div class="ph-h"><span class="n">4</span><h2 id="h-4">Arranca el sistema</h2><span class="tm">~15 min</span></div>
+  <p class="ph-intro">A partir de acá la IA te guía. Te hace <b>8 preguntas de diagnóstico</b> (una por área) y <b>7 sobre tu negocio</b>, de a una. Con eso arma tu Notion completo y te dice cuál es tu cuello: el área que, si no la tocas, hace inútil trabajar en las otras.</p>
+  <div class="items">
+   <div class="item"><span class="cbox"></span><div class="txt"><div class="tt">Escribe esto en Claude</div><div class="ds">Funciona recién después del Paso 2 (con las skills instaladas y la app reiniciada).</div><span class="say"><small>Copia y pega en Claude</small>arrancar private build os</span></div></div>
+   <div class="item"><span class="cbox"></span><div class="txt"><div class="tt">Responde el diagnóstico de las 8 áreas</div><div class="ds">Sin pensarlo mucho. Es una foto de qué está construido hoy, no un examen.</div></div></div>
+   <div class="item"><span class="cbox"></span><div class="txt"><div class="tt">Responde las 7 preguntas de contexto</div><div class="ds">Qué haces, qué vendes, a quién, por dónde llegan, qué te frena, tu meta a 90 días. Se escriben <b>una vez</b> y todas las skills las leen — nunca más explicas tu negocio desde cero.</div></div></div>
+   <div class="item"><span class="cbox"></span><div class="txt"><div class="tt">Revisa tu Notion</div><div class="ds">Debe aparecer la página <b>🏗️ Private Build OS</b> con: Documento de contexto, las 8 páginas de área y 6 bases (Tablero de áreas, Leads y clientes, Llamadas, Contenido, Aprendizajes, Decisiones).</div></div></div>
+   <div class="item"><span class="cbox"></span><div class="txt"><div class="tt">Anota tu cuello y abre su skill</div><div class="ds">Claude te da la frase exacta para abrir el área que toca. Esa es tu única prioridad hasta que funcione.</div></div></div>
+  </div>
+  <div class="note"><b>¿No quieres usar Notion?</b> Funciona igual: al final Claude te entrega todo en un documento para pegar donde quieras. Pero el cruce con ChatGPT y la memoria entre sesiones funcionan mucho mejor con Notion.</div>
+ </section>
+
+ <section class="phase" aria-labelledby="h-5">
+  <div class="ph-h"><span class="n">5</span><h2 id="h-5">Suma a ChatGPT: el cruce</h2><span class="tm">~7 min</span></div>
+  <p class="ph-intro">Una IA que construye y se revisa a sí misma tiende a darse la razón. Por eso: <b>Claude construye, ChatGPT audita</b>, y los dos leen el mismo Notion. Se configura una vez.</p>
+  <div class="items">
+   <div class="item"><span class="cbox"></span><div class="txt"><div class="tt">Crea un Proyecto en ChatGPT llamado "Private Build OS"</div><div class="ds">En <a href="https://chatgpt.com" target="_blank" rel="noopener">chatgpt.com ↗</a> → Proyectos → Nuevo proyecto.</div></div></div>
+   <div class="item"><span class="cbox"></span><div class="txt"><div class="tt">Pega estas instrucciones en el proyecto</div><div class="ds">En el proyecto → Instrucciones. Tal cual:</div><span class="say long"><small>Copia y pega en ChatGPT</small>Eres el auditor de Private Build OS de mi negocio. Claude construye las piezas; tú las auditas. No construyes en paralelo.
+
+La memoria del negocio vive en Notion, en la página "🏗️ Private Build OS": un Documento de contexto, 8 páginas de área (Foundations, Oferta, Avatar, Contenido, Captura, Ventas, Entrega, Success) y 6 bases (Tablero de áreas, Leads y clientes, Llamadas, Contenido, Aprendizajes, Decisiones). Si tienes el conector de Notion, lee el Documento de contexto antes de responder.
+
+Los archivos de este proyecto (SKILL.md de cada área) son el criterio contra el que mides. Cuando audites una pieza de un área, usa las reglas de ese archivo, no tu opinión general.
+
+Cuando te pegue un BRIEF DE CRUCE:
+- Responde solo con una tabla: Punto | Mantener o cambiar | Por qué (1 línea) | Propuesta concreta.
+- Máximo 7 filas. No reescribas la pieza completa.
+- Si algo está bien, dilo y no lo toques.
+- Voz exigente, no complaciente. Sin relleno.
+- Si te falta un dato del negocio, pregúntalo. No lo inventes.
+
+Idioma: español neutro latinoamericano, tratando de tú.</span></div></div>
+   <div class="item"><span class="cbox"></span><div class="txt"><div class="tt">Sube el criterio de las 9 skills al proyecto</div><div class="ds">Descarga el paquete, descomprímelo y sube a los <b>Archivos del proyecto</b> los 9 <code>SKILL.md</code> de la carpeta <code>skills/</code>. <a href="https://github.com/pvt-build/privatebuild-os/archive/refs/heads/main.zip" rel="noopener">Descargar paquete (.zip) ↗</a></div></div></div>
+   <div class="item"><span class="cbox"></span><div class="txt"><div class="tt">Activa Notion en ChatGPT</div><div class="ds">En la configuración de ChatGPT, busca <b>Notion</b> en conectores o apps y dale acceso a 🏗️ Private Build OS. Si tu plan no lo tiene, no pasa nada: el brief lleva la pieza pegada.</div></div></div>
+   <div class="item"><span class="cbox"></span><div class="txt"><div class="tt">Opcional · si usas Codex</div><div class="ds">Instala las mismas skills en el agente de OpenAI, desde Claude o tu terminal:</div><span class="say"><small>Copia y pega en Claude</small>npx skills add https://github.com/pvt-build/privatebuild-os -g -a codex -y</span></div></div>
+  </div>
+  <div class="tip"><span>↔</span><div><b>Cómo se usa, cada vez:</b> cuando cierres una pieza importante, escribe <i>"cruce con GPT"</i> → Claude te arma un brief → lo pegas en tu proyecto de ChatGPT → traes la respuesta a Claude con <i>"respuesta de GPT: …"</i> → Claude te dice qué acepta, qué rechaza y por qué, y lo guarda en Notion.</div></div>
+ </section>
+
+ <section class="phase" aria-labelledby="h-6">
+  <div class="ph-h"><span class="n">6</span><h2 id="h-6">Prueba cada área</h2><span class="tm">~5 min</span></div>
+  <p class="ph-intro">Copia cada frase en Claude. Si responde con su método —preguntas concretas, no consejos genéricos—, quedó. Marca las que probaste:</p>
+  <div class="items">
+   <div class="item"><span class="cbox"></span><div class="txt"><div class="tt">01 · Foundations</div><span class="say">diagnostica mis foundations</span></div></div>
+   <div class="item"><span class="cbox"></span><div class="txt"><div class="tt">02 · Oferta</div><span class="say">arma mi oferta</span></div></div>
+   <div class="item"><span class="cbox"></span><div class="txt"><div class="tt">03 · Avatar</div><span class="say">arma mi avatar</span></div></div>
+   <div class="item"><span class="cbox"></span><div class="txt"><div class="tt">04 · Contenido</div><span class="say">qué publico esta semana</span></div></div>
+   <div class="item"><span class="cbox"></span><div class="txt"><div class="tt">05 · Captura</div><span class="say">barre mi bandeja</span></div></div>
+   <div class="item"><span class="cbox"></span><div class="txt"><div class="tt">06 · Ventas</div><span class="say">prepárame para mi próxima llamada de venta</span></div></div>
+   <div class="item"><span class="cbox"></span><div class="txt"><div class="tt">07 · Entrega</div><span class="say">diseña mi entrega</span></div></div>
+   <div class="item"><span class="cbox"></span><div class="txt"><div class="tt">08 · Success</div><span class="say">revisión del loop</span></div></div>
+  </div>
+ </section>
+
+ <section class="phase" aria-labelledby="h-7">
+  <div class="ph-h"><span class="n">7</span><h2 id="h-7">Tu ritmo</h2><span class="tm">para siempre</span></div>
+  <p class="ph-intro">El sistema no se instala una vez y queda. Se sostiene con tres hábitos cortos. Márcalos cuando los tengas agendados:</p>
+  <div class="items">
+   <div class="item"><span class="cbox"></span><div class="txt"><div class="tt">Cada lunes · 15 min</div><div class="ds">Revisa el cuello, los leads con seguimiento vencido y te deja 3 acciones para la semana.</div><span class="say">revisión semanal</span></div></div>
+   <div class="item"><span class="cbox"></span><div class="txt"><div class="tt">Después de cada pieza importante</div><div class="ds">Tu oferta, tu avatar, un guion de llamada, una decisión grande.</div><span class="say">cruce con GPT</span></div></div>
+   <div class="item"><span class="cbox"></span><div class="txt"><div class="tt">Una vez al mes · 30 min</div><div class="ds">Lo que pasó con tus clientes se convierte en correcciones concretas para cada área.</div><span class="say">revisión del loop</span></div></div>
+  </div>
+ </section>
+
+ <div class="done-banner" id="doneBanner" role="status">
+  <h3>Listo — tus 8 sistemas tienen copiloto</h3>
+  <p>Ahora pídele algo que cruce todo: <i>"con lo que hay en mi Notion, ¿qué área me está costando más plata este mes y por qué?"</i></p>
+ </div>
+</main>
+
+<footer class="foot">Private Build · Private Build OS · <a href="https://github.com/pvt-build/privatebuild-os">github.com/pvt-build/privatebuild-os</a><button class="reset" type="button" id="reset">reiniciar checklist</button></footer>
+
+<script>
+const items=[...document.querySelectorAll('.item')];
+const KEY='pbos-onboarding-v1';
+let state={};
+try{state=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){state={}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){}}
+function paint(){
+ let done=0;
+ items.forEach((it,i)=>{const on=!!state[i];it.classList.toggle('done',on);it.setAttribute('aria-checked',on);if(on)done++;});
+ const pct=Math.round(done/items.length*100);
+ document.getElementById('pbar').style.transform='scaleX('+(pct/100)+')';
+ document.getElementById('pval').textContent=pct+'%';
+ document.getElementById('doneBanner').classList.toggle('on',done===items.length);
+}
+items.forEach((it,i)=>{
+ it.setAttribute('role','checkbox');it.tabIndex=0;
+ const toggle=()=>{state[i]=!state[i];save();paint();};
+ it.addEventListener('click',e=>{
+  if(e.target.closest('a')||e.target.closest('.copybtn')||e.target.closest('.say'))return;
+  toggle();
+ });
+ it.addEventListener('keydown',e=>{if((e.key===' '||e.key==='Enter')&&e.target===it){e.preventDefault();toggle();}});
+});
+document.getElementById('reset').addEventListener('click',()=>{state={};save();paint();});
+function fallbackCopy(t,cb){try{const ta=document.createElement('textarea');ta.value=t;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);cb()}catch(e){}}
+document.querySelectorAll('.say').forEach(say=>{
+ const small=say.querySelector('small');
+ const txt=[...say.childNodes].filter(n=>n!==small).map(n=>n.textContent).join('').trim();
+ const b=document.createElement('button');
+ b.className='copybtn';b.type='button';b.textContent='Copiar';
+ b.addEventListener('click',e=>{
+  e.stopPropagation();
+  const done=()=>{b.textContent='✓ Copiado';b.classList.add('done');setTimeout(()=>{b.textContent='Copiar';b.classList.remove('done')},1600)};
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(done).catch(()=>fallbackCopy(txt,done))}else{fallbackCopy(txt,done)}
+ });
+ say.appendChild(b);
+});
+paint();
+</script>
+</body>
+</html>
