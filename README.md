@@ -10,7 +10,16 @@ Este repo son esas ocho áreas convertidas en skills para Claude: cada una sabe 
 preguntar, en qué orden construir, contra qué medir y dónde dejarlo escrito en tu Notion.
 Más una de entrada que diagnostica cuál está rota hoy.
 
-**Manual de instalación paso a paso:** https://pvt-build.github.io/privatebuild-os/onboarding/
+**Marketplace (copia y pega la skill que necesitas):** https://pvt-build.github.io/privatebuild-os/
+**Manual para instalar las 9 en Claude Code + Notion:** https://pvt-build.github.io/privatebuild-os/onboarding/
+
+## Tres formas de usarlas
+
+| Forma | Tiempo | Cómo |
+|---|---|---|
+| **Copiar y pegar** | 30 s | En el marketplace, botón *Copiar skill* → pégala en un chat de Claude o ChatGPT → escribe su frase de arranque |
+| **Proyecto con las 9** | 5 min | Sube los 9 archivos de `dist/` a un Proyecto de Claude o ChatGPT |
+| **Sistema completo** | 40 min | Claude Code + Notion + ChatGPT auditando — sigue el manual de onboarding |
 
 ---
 
@@ -77,6 +86,13 @@ lo que las otras siete produjeron y devuelve la corrección a cada una.
 4. **Si algo no encuentra su área, no falta una categoría: falta dueño.**
 
 ---
+
+## Cómo se suma una skill nueva
+
+1. Crea su carpeta en `skills/<nombre>/` con `SKILL.md` (y `references/` si hace falta).
+2. Agrega su entrada en `catalogo/areas.json` (área, promesa, frase, señales, qué necesitas).
+3. Corre `python3 scripts/build.py` → genera `dist/<nombre>.md` (versión de un solo archivo para copiar y pegar) y actualiza la vitrina.
+4. Commit y push. La vitrina se actualiza sola en GitHub Pages.
 
 ## Actualizar
 

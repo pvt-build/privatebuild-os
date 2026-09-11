@@ -1,6 +1,358 @@
 <!doctype html>
-<html lang="es"><head><meta charset="utf-8"><title>Private Build OS</title>
-<meta http-equiv="refresh" content="0; url=onboarding/">
-<link rel="canonical" href="onboarding/"></head>
-<body style="background:#1C1113;color:#F6F1F0;font-family:system-ui,sans-serif;padding:40px">
-<a href="onboarding/" style="color:#FF4A45">Ir al onboarding de Private Build OS →</a></body></html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Private Build OS · Skills para founders</title>
+<meta name="description" content="Los 8 sistemas de un negocio, una skill de IA para cada uno. Encuentra el área rota de tu negocio, copia la skill y pégala en Claude o ChatGPT. Gratis.">
+<meta property="og:title" content="Private Build OS · Skills para founders">
+<meta property="og:description" content="Los 8 sistemas de tu negocio. Una skill de IA para cada uno. Copia, pega y trabaja con el método.">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+ --bg:#1C1113;--card:rgba(255,255,255,.05);--card-hi:rgba(255,255,255,.08);--sunk:rgba(0,0,0,.25);
+ --line:rgba(255,168,164,.15);--line-hi:rgba(229,50,45,.6);
+ --ink:#F6F1F0;--text:#DBCECB;--muted:#B6A8A6;--faint:#8A7B79;
+ --red:#E5322D;--red-hi:#FF4A45;--red-soft:rgba(229,50,45,.14);
+ --ok:#3DDC84;--ok-soft:rgba(61,220,132,.12);--warn:#F2B84B;
+ --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+ --sans:ui-sans-serif,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+ --ease:cubic-bezier(.32,.72,0,1)}
+html{background:var(--bg);scroll-behavior:smooth}
+body{min-height:100vh;color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;
+ background:radial-gradient(1100px 620px at 12% -6%,rgba(229,50,45,.24),transparent 62%),radial-gradient(900px 560px at 92% 4%,rgba(229,50,45,.10),transparent 60%),linear-gradient(180deg,#231516 0%,#1C1113 42%,#180E10 100%);background-attachment:fixed}
+a{color:var(--red-hi)}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--red-hi);outline-offset:2px}
+.mono{font-family:var(--mono)}
+
+nav.top{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:6px;padding:12px 22px;background:rgba(28,17,19,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap}
+.brand{display:flex;flex-direction:column;line-height:1.1;text-decoration:none;margin-right:14px;flex-shrink:0}
+.brand b{font-weight:800;font-size:13px;letter-spacing:.1em;color:var(--red-hi);text-transform:uppercase}
+.brand span{font-size:9.5px;color:var(--muted)}
+nav.top a.l{color:var(--muted);text-decoration:none;font-size:12.5px;padding:6px 11px;border-radius:20px;border:1px solid transparent;flex-shrink:0}
+nav.top a.l:hover{color:var(--ink);border-color:var(--line)}
+nav.top a.l.on{color:var(--red-hi);background:var(--red-soft);border-color:var(--line-hi)}
+nav.top .cta{margin-left:auto}
+
+.wrap{max-width:1160px;margin:0 auto;padding:0 22px}
+section{padding:56px 0 0}
+.k{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.k b{color:var(--red-hi);font-weight:600}
+h1{font-size:clamp(34px,6vw,64px);font-weight:850;color:var(--ink);letter-spacing:-.035em;line-height:1.0;text-wrap:balance;max-width:16ch}
+h1 em{font-style:normal;color:var(--red-hi)}
+h2{font-size:clamp(24px,3.4vw,34px);font-weight:800;color:var(--ink);letter-spacing:-.025em;line-height:1.1;text-wrap:balance}
+h2 em{font-style:normal;color:var(--red-hi)}
+.lead{font-size:17px;color:var(--text);max-width:60ch;margin-top:16px}
+.lead b{color:var(--ink)}
+.sh{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:12px 30px;margin-bottom:22px}
+.sh p{color:var(--muted);max-width:56ch;font-size:14.5px}
+
+.hero{padding:64px 0 10px}
+.hero .meta{display:flex;flex-wrap:wrap;gap:6px 18px;margin-bottom:22px}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:14px;padding:12px 20px;border-radius:30px;text-decoration:none;border:1px solid var(--line);color:var(--ink);background:var(--card);transition:.15s var(--ease)}
+.btn:hover{border-color:var(--line-hi);transform:translateY(-1px)}
+.btn.p{background:var(--red);border-color:var(--red);color:#fff}
+.btn.p:hover{background:var(--red-hi)}
+.btn.s{padding:8px 14px;font-size:12.5px}
+.strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-top:40px}
+.strip div{background:rgba(28,17,19,.9);padding:14px 16px}
+.strip b{display:block;font-size:26px;font-weight:850;color:var(--ink);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.strip span{font-size:12px;color:var(--muted)}
+
+/* formas de uso */
+.ways{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.way{border:1px solid var(--line);background:var(--card);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:8px}
+.way.hi{border-color:var(--line-hi);background:linear-gradient(160deg,rgba(229,50,45,.14),rgba(255,255,255,.03))}
+.way .t{font-weight:750;color:var(--ink);font-size:16px}
+.way .tm{font-family:var(--mono);font-size:10.5px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+.way p{font-size:13.5px;color:var(--muted)}
+.way code{font-family:var(--mono);font-size:11.5px;color:var(--ink);background:var(--sunk);border:1px solid var(--line);border-radius:8px;padding:8px 10px;display:block;overflow-wrap:anywhere;margin-top:auto}
+.way a{font-size:13px;font-weight:600;text-decoration:none;margin-top:auto}
+
+/* diagnóstico */
+.diag{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:18px;align-items:start}
+.qs{border:1px solid var(--line);border-radius:18px;background:var(--card);overflow:hidden}
+.q{padding:14px 18px;border-bottom:1px solid var(--line)}
+.q:last-child{border-bottom:none}
+.q .qt{display:flex;gap:10px;align-items:baseline;font-weight:650;color:var(--ink);font-size:14.5px}
+.q .qt .n{font-family:var(--mono);font-size:10.5px;color:var(--red-hi);letter-spacing:.08em;flex:0 0 auto}
+.q .qt small{font-weight:400;color:var(--faint);font-size:12px}
+.opts{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
+.opt{font-size:12.5px;padding:6px 11px;border-radius:9px;border:1px solid var(--line);background:transparent;color:var(--text);text-align:left;line-height:1.35}
+.opt:hover{border-color:var(--muted);color:var(--ink)}
+.opt[aria-pressed="true"]{background:var(--ink);color:#1C1113;border-color:var(--ink);font-weight:600}
+.res{position:sticky;top:76px;border:1px solid var(--line);border-radius:18px;background:rgba(28,17,19,.92);padding:20px}
+.bars{display:flex;flex-direction:column;gap:7px;margin:14px 0 16px}
+.bar{display:grid;grid-template-columns:92px 1fr 22px;gap:10px;align-items:center;font-size:12.5px}
+.bar .nm{color:var(--text)}
+.bar .tr{height:8px;border-radius:5px;background:rgba(255,255,255,.07);overflow:hidden}
+.bar .tr i{display:block;height:100%;border-radius:5px;background:var(--faint);transition:width .4s var(--ease)}
+.bar.bad .tr i{background:var(--red)}
+.bar.mid .tr i{background:var(--warn)}
+.bar.good .tr i{background:var(--ok)}
+.bar.cuello .nm{color:var(--red-hi);font-weight:700}
+.bar .sc{font-family:var(--mono);font-size:11.5px;color:var(--muted);text-align:right;font-variant-numeric:tabular-nums}
+.verd{border-top:1px solid var(--line);padding-top:14px}
+.verd h3{font-size:20px;color:var(--ink);letter-spacing:-.015em;line-height:1.2}
+.verd h3 em{font-style:normal;color:var(--red-hi)}
+.verd p{font-size:13.5px;color:var(--muted);margin-top:6px}
+.verd .btns{margin-top:14px}
+.pending{font-size:13.5px;color:var(--muted)}
+
+/* catálogo */
+.entry{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr) auto;gap:22px;align-items:center;border:1px solid var(--line-hi);background:linear-gradient(120deg,rgba(229,50,45,.16),rgba(255,255,255,.03));border-radius:18px;padding:20px 22px;margin-bottom:12px}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.card{border:1px solid var(--line);background:var(--card);border-radius:16px;display:flex;flex-direction:column;transition:border-color .2s,background .2s;scroll-margin-top:90px}
+.card:hover{background:var(--card-hi)}
+.card.flag{border-color:var(--red);box-shadow:0 0 0 3px var(--red-soft)}
+.card .hd{padding:16px 16px 12px}
+.card .no{font-family:var(--mono);font-size:10.5px;color:var(--red-hi);letter-spacing:.1em;display:flex;justify-content:space-between}
+.card .no .tag{color:#1C1113;background:var(--red-hi);border-radius:20px;padding:0 8px;font-weight:700;letter-spacing:.04em}
+.card h3{font-size:20px;color:var(--ink);font-weight:800;letter-spacing:-.02em;margin-top:2px}
+.card .pr{font-size:13.5px;color:var(--text);margin-top:3px;line-height:1.4}
+.card .blk{padding:10px 16px;border-top:1px dashed var(--line)}
+.card .blk .k{font-size:9.5px;display:block;margin-bottom:5px}
+.card ul{list-style:none;display:flex;flex-direction:column;gap:3px}
+.card li{font-size:12.5px;color:var(--muted);padding-left:14px;position:relative;line-height:1.4}
+.card li:before{content:"";position:absolute;left:0;top:.6em;width:6px;height:1px;background:var(--muted)}
+.card ul.sig li:before{background:var(--red-hi)}
+.frase{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;color:var(--ink);background:var(--sunk);border:1px solid var(--line);border-radius:9px;padding:7px 8px 7px 10px}
+.frase span{flex:1;overflow-wrap:anywhere}
+.mini{font-family:var(--sans);font-size:11px;font-weight:700;border:1px solid var(--line);background:transparent;color:var(--muted);border-radius:6px;padding:3px 8px;flex:0 0 auto}
+.mini:hover{color:var(--ink);border-color:var(--muted)}
+.card .act{margin-top:auto;padding:12px 16px 16px;display:flex;flex-wrap:wrap;gap:6px;border-top:1px solid var(--line)}
+.copy{flex:1 1 100%;display:inline-flex;justify-content:center;align-items:center;gap:8px;font-weight:700;font-size:13.5px;padding:10px 14px;border-radius:10px;background:var(--red);border:1px solid var(--red);color:#fff;transition:.15s var(--ease)}
+.copy:hover{background:var(--red-hi)}
+.copy.ok{background:#1f9d57;border-color:#1f9d57}
+.link{font-size:12px;font-weight:600;color:var(--muted);text-decoration:none;padding:5px 2px}
+.link:hover{color:var(--ink)}
+.size{font-family:var(--mono);font-size:10.5px;color:var(--faint);margin-left:auto;align-self:center}
+
+/* pasos */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;counter-reset:s}
+.step{border:1px solid var(--line);border-radius:16px;padding:18px;background:var(--card)}
+.step:before{counter-increment:s;content:counter(s);font-family:var(--mono);font-weight:700;font-size:12px;color:var(--red-hi);width:28px;height:28px;border-radius:8px;border:1px solid var(--line-hi);background:var(--red-soft);display:flex;align-items:center;justify-content:center;margin-bottom:10px}
+.step b{color:var(--ink);display:block;font-size:15px}
+.step p{color:var(--muted);font-size:13.5px;margin-top:4px}
+.note{margin-top:12px;font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:var(--sunk)}
+.note b{color:var(--text)}
+
+/* escalera */
+.ladder{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.rung{padding:22px;background:var(--card);border-right:1px solid var(--line);display:flex;flex-direction:column;gap:8px}
+.rung:last-child{border-right:none;background:linear-gradient(160deg,rgba(229,50,45,.18),rgba(255,255,255,.03))}
+.rung .k{color:var(--faint)}
+.rung .t{font-size:19px;font-weight:800;color:var(--ink);letter-spacing:-.015em}
+.rung p{font-size:13.5px;color:var(--muted)}
+.rung .btn{margin-top:auto;align-self:flex-start}
+
+footer{margin-top:70px;border-top:1px solid var(--line);padding:22px 0 40px;color:var(--faint);font-size:12px;font-family:var(--mono)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:8px 22px}
+footer a{color:var(--muted)}
+.toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:var(--ink);color:#1C1113;font-size:13.5px;font-weight:600;padding:12px 18px;border-radius:12px;max-width:min(92vw,520px);transition:.3s var(--ease);z-index:90;box-shadow:0 18px 40px -18px rgba(0,0,0,.7)}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+@media(max-width:1020px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.diag{grid-template-columns:1fr}.res{position:static}.entry{grid-template-columns:1fr}}
+@media(max-width:720px){.grid,.ways,.steps,.ladder{grid-template-columns:1fr}.rung{border-right:none;border-bottom:1px solid var(--line)}.strip{grid-template-columns:1fr 1fr}nav.top .cta{display:none}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<nav class="top" aria-label="Principal">
+ <a class="brand" href="./"><b>Private Build</b><span>Private Build OS</span></a>
+ <a class="l on" href="#skills">Skills</a>
+ <a class="l" href="#diagnostico">Diagnóstico</a>
+ <a class="l" href="#como">Cómo se usan</a>
+ <a class="l" href="onboarding/">Instalar todo</a>
+ <a class="l" href="https://privatebuild-os.vercel.app/sistemas/" target="_blank" rel="noopener">Las 8 áreas ↗</a>
+ <a class="l" href="https://github.com/pvt-build/privatebuild-os" target="_blank" rel="noopener">GitHub ↗</a>
+ <a class="btn p s cta" id="waTop" href="#" target="_blank" rel="noopener">Hablemos</a>
+</nav>
+
+<main class="wrap">
+ <header class="hero">
+  <div class="meta"><span class="k"><b>[ Private Build OS ]</b></span><span class="k">[ 9 skills gratis ]</span><span class="k">[ Claude · ChatGPT · Notion ]</span></div>
+  <h1>Tu negocio tiene 8 sistemas. <em>Aquí está la skill para cada uno.</em></h1>
+  <p class="lead">El desorden nunca es falta de trabajo: es una de las ocho áreas que nadie construyó. Encuentra cuál está rota, <b>copia su skill, pégala en Claude o ChatGPT</b> y trabaja con el método en vez de improvisar. Sin instalar nada.</p>
+  <div class="btns"><a class="btn p" href="#diagnostico">Encuentra tu área rota</a><a class="btn" href="#skills">Ver las 9 skills</a></div>
+  <div class="strip" aria-label="Resumen">
+   <div><b>8</b><span>áreas de negocio</span></div>
+   <div><b>9</b><span>skills listas para copiar</span></div>
+   <div><b>30 s</b><span>de copiar a usar</span></div>
+   <div><b>$0</b><span>para empezar hoy</span></div>
+  </div>
+ </header>
+
+ <section id="diagnostico" aria-labelledby="h-diag">
+  <div class="sh"><div><div class="k">Antes de elegir</div><h2 id="h-diag">¿Cuál de las 8 <em>está rota</em>?</h2></div><p>Ocho preguntas, sin pensarlo mucho. No es una etiqueta sobre ti: es una foto de qué está construido hoy en tu negocio. Mejorar un área que no es el cuello es trabajo real con progreso cero.</p></div>
+  <div class="diag">
+   <div class="qs" id="qs"></div>
+   <aside class="res" id="res" aria-live="polite"></aside>
+  </div>
+ </section>
+
+ <section id="skills" aria-labelledby="h-skills">
+  <div class="sh"><div><div class="k">El marketplace</div><h2 id="h-skills">Una skill por área. <em>Copia la que necesitas.</em></h2></div><p>Cada skill es el método completo del área: qué preguntar, en qué orden construir, contra qué medir y dónde dejarlo escrito. Se pega entera en un chat y listo.</p></div>
+  <div id="entry"></div>
+  <div class="grid" id="grid"></div>
+ </section>
+
+ <section id="como" aria-labelledby="h-como">
+  <div class="sh"><div><div class="k">Copiar y pegar</div><h2 id="h-como">Cómo se usa una skill</h2></div><p>Funciona igual en Claude y en ChatGPT. La skill pega como archivo adjunto porque trae el método completo, con sus anexos.</p></div>
+  <div class="steps">
+   <div class="step"><b>Copia la skill del área</b><p>Botón rojo de la tarjeta. Si prefieres guardarla, descarga el <span class="mono">.md</span>.</p></div>
+   <div class="step"><b>Pégala en un chat nuevo</b><p>En Claude o ChatGPT. Mejor aún: súbela como archivo a un <b>Proyecto</b> y no la vuelves a pegar.</p></div>
+   <div class="step"><b>Escribe la frase de arranque</b><p>Cada tarjeta tiene la suya. La IA te pregunta de a una cosa y te deja la pieza escrita.</p></div>
+  </div>
+  <div class="note"><b>Con Notion es mejor.</b> Sin Notion, la skill trabaja en el chat y te entrega todo listo para pegar. Con Notion conectado, cada pieza queda guardada y las 9 skills leen la misma memoria de tu negocio.</div>
+
+  <div class="ways" style="margin-top:22px">
+   <div class="way"><span class="tm">30 segundos · cualquier chat</span><span class="t">Copiar y pegar</span><p>Una skill a la vez, para el área que te duele hoy. Es el camino de esta página.</p><a href="#skills">Elegir una skill ↑</a></div>
+   <div class="way"><span class="tm">5 minutos · Claude o ChatGPT</span><span class="t">Proyecto con las 9</span><p>Crea un Proyecto, sube los 9 archivos y tienes el sistema entero a mano en cada chat.</p><a href="https://github.com/pvt-build/privatebuild-os/archive/refs/heads/main.zip">Descargar las 9 (.zip) →</a></div>
+   <div class="way hi"><span class="tm">40 minutos · Claude Code + Notion</span><span class="t">El sistema completo</span><p>Instala las 9 con una línea, conecta Notion y la IA te arma tu espacio completo. Suma ChatGPT como auditor.</p><code>npx skills add https://github.com/pvt-build/privatebuild-os -g -a claude-code -y</code><a href="onboarding/">Manual paso a paso →</a></div>
+  </div>
+ </section>
+
+ <section aria-labelledby="h-lad">
+  <div class="sh"><div><div class="k">Hasta dónde llegas</div><h2 id="h-lad">Empieza gratis. <em>Escala cuando lo necesites.</em></h2></div><p>Las skills te dan el método. Lo que cambia entre negocios es cuál área está rota y cuánto tiempo tienes para construirla.</p></div>
+  <div class="ladder">
+   <div class="rung"><span class="k">Hoy · gratis</span><span class="t">Las skills</span><p>Copias la del área rota y la trabajas a tu ritmo. El método es el mismo que usamos en consultoría.</p><a class="btn s" href="#skills">Copiar una skill</a></div>
+   <div class="rung"><span class="k">Esta semana · gratis</span><span class="t">El sistema completo</span><p>Las 9 en Claude Code, tu Notion armado y ChatGPT auditando. Todo tu negocio mapeado en un lugar.</p><a class="btn s" href="onboarding/">Ver el manual</a></div>
+   <div class="rung"><span class="k">Con acompañamiento</span><span class="t">Lo construimos contigo</span><p>Consultoría 1:1: diagnosticamos el cuello y construimos las áreas en sesión, en tu negocio, con tus números.</p><a class="btn p s" id="waLad" href="#" target="_blank" rel="noopener">Hablemos por WhatsApp</a></div>
+  </div>
+ </section>
+</main>
+
+<footer><div class="wrap"><span>Método: Private Build · @privatebuild.os</span><a href="https://github.com/pvt-build/privatebuild-os">github.com/pvt-build/privatebuild-os</a><span id="gen"></span></div></footer>
+<div class="toast" id="toast" role="status"></div>
+
+<script id="catalogo" type="application/json">{"generado": "2026-09-11", "skills": [{"skill": "pb-os", "n": "00", "area": "Entrada", "slug": "sistemas", "promesa": "Cuál de las 8 está rota hoy y qué se hace primero", "frase": "arrancar private build os", "senales": ["No sabes cuál de las 8 áreas está rota", "Sientes que estás armando todo al mismo tiempo", "Tu negocio no tiene un lugar donde quede escrito"], "necesitas": ["Claude o ChatGPT", "Notion conectado (arma tu espacio completo)", "15 minutos"], "estado": "lista", "resumen": "La puerta de entrada de Private Build OS — el sistema de los 8 sistemas de un negocio de servicios, coaching o consultoría (Foundations, Oferta, Avatar, Contenido, Captura, Ventas, Entrega, Success).", "descripcion": "La puerta de entrada de Private Build OS — el sistema de los 8 sistemas de un negocio de servicios, coaching o consultoría (Foundations, Oferta, Avatar, Contenido, Captura, Ventas, Entrega, Success). Hace el diagnóstico de las 8 áreas, escribe el Documento de contexto, arma el Notion completo (hub, 8 páginas de área y 6 bases), encuentra el cuello y manda a la skill del área que toca. También corre la revisión semanal y configura el cruce con ChatGPT. Úsala SIEMPRE que el cliente diga \"arrancar private build os\", \"diagnóstico de mi negocio\", \"por dónde parto\", \"no sé qué hacer ahora\", \"qué área está rota\", \"mi tablero\", \"revisión semanal\", \"configurar GPT\", \"conectar ChatGPT\", \"actualiza las skills\" o traiga algo sin saber a qué área pertenece. No construye las piezas de un área: eso lo hace la pb-* de esa área.", "archivo": "dist/pb-os.md", "fuente": "https://github.com/pvt-build/privatebuild-os/tree/main/skills/pb-os", "pagina": "https://privatebuild-os.vercel.app/sistemas/", "palabras": 4799, "anexos": 4}, {"skill": "pb-foundations", "n": "01", "area": "Foundations", "slug": "foundations", "promesa": "La lógica del negocio y hacia dónde va", "frase": "diagnostica mis foundations", "senales": ["Operas a tu nombre o sin contabilidad al día", "Las decisiones grandes salen del ánimo del día", "Tu modelo de negocio vive solo en tu cabeza"], "necesitas": ["Claude o ChatGPT", "Notion (recomendado)", "30 minutos a solas para las preguntas del centro"], "estado": "lista", "resumen": "La lógica del negocio y hacia dónde va.", "descripcion": "Área 01 de Private Build OS: la lógica del negocio y hacia dónde va. Revisa la base (legal, administración, contabilidad, propósito, modelo escrito), mantiene vivo el Documento de contexto que leen todas las skills, audita cada decisión grande contra los 5 tipos de leverage y los 8 criterios y la deja en ⚖️ Decisiones, ordena la revisión de las 6 capas del founder y arma tu Ethos, Pathos y Logos. Úsala cuando digas \"diagnostica mis foundations\", \"audita esta decisión\", \"¿contrato o no?\", \"¿hago X o Y?\", \"¿invierto en esto?\", \"revisión del centro\", \"me siento estancado\", \"actualiza mi documento de contexto\", \"¿por qué construyo esto?\", \"arma mi ethos\", \"¿esto lo puedo contar o es privado?\". No arma la oferta ni el precio (pb-oferta), no define a quién le vendes (pb-avatar), no escribe la pieza de contenido (pb-contenido) y no da asesoría legal, contable ni de inversión.", "archivo": "dist/pb-foundations.md", "fuente": "https://github.com/pvt-build/privatebuild-os/tree/main/skills/pb-foundations", "pagina": "https://privatebuild-os.vercel.app/sistemas/foundations", "palabras": 9841, "anexos": 4}, {"skill": "pb-oferta", "n": "02", "area": "Oferta", "slug": "offer", "promesa": "Qué vendes y a qué precio", "frase": "arma mi oferta", "senales": ["Te dicen \"lo pienso\" y no sabes por qué", "Te negocian el precio", "Entregas más de lo que cobras"], "necesitas": ["Claude o ChatGPT", "Notion (recomendado)", "Tu oferta actual o tu última propuesta, aunque esté floja"], "estado": "lista", "resumen": "Qué vendes y a qué precio.", "descripcion": "Área 02 · Oferta de Private Build OS: qué vendes y a qué precio. Construye contigo los 10 bloques de una oferta que se vende sola y los deja escritos en la página 02 · Oferta de tu Notion. Diagnostica qué bloque falta por el síntoma del ciclo, audita cualquier pieza contra tu oferta, arma el pitch personalizado para un lead desde su ficha y decide cambios de precio, promesa, entregable o límite. Úsala cuando digas \"arma mi oferta\", \"qué vendo y a qué precio\", \"me dicen lo pienso\", \"me negocian el precio\", \"estoy entregando de más\", \"audita mi propuesta\", \"arma el pitch para [lead]\", \"prepárame la propuesta para X\", \"quiero subir el precio\". NO conduce la llamada ni maneja objeciones (pb-ventas), NO define a quién le vendes (pb-avatar) y NO escribe el contenido que la declara (pb-contenido).", "archivo": "dist/pb-oferta.md", "fuente": "https://github.com/pvt-build/privatebuild-os/tree/main/skills/pb-oferta", "pagina": "https://privatebuild-os.vercel.app/sistemas/offer", "palabras": 10050, "anexos": 5}, {"skill": "pb-avatar", "n": "03", "area": "Avatar", "slug": "avatar", "promesa": "A quién le vendes y a quién no", "frase": "arma mi avatar", "senales": ["Le vendes a perfiles distintos sin uno claro", "Te llegan leads que no son para ti", "Tu cliente ideal vive en tu cabeza"], "necesitas": ["Claude o ChatGPT", "Notion (recomendado)", "La lista de tus últimos clientes: quién pagó completo, quién renovó"], "estado": "lista", "resumen": "A quién le vendes y a quién no.", "descripcion": "Área 03 de Private Build OS: a quién le vendes y a quién no. Construye contigo tu avatar en 14 piezas (ficha medida, lo que cree que le falta vs. lo que le falta, dolores en su idioma, ventana de compra, miedos, economía, anti-avatar y ruteo) y lo deja en la página 03 · Avatar de Notion. Contrasta el avatar declarado contra quien de verdad compra, paga precio completo y renueva, y califica leads con Fit avatar Alto/Medio/Bajo. Úsala cuando digas \"arma mi avatar\", \"quién es mi cliente ideal\", \"a quién dejo ir\", \"califica este lead\", \"este lead me sirve\", \"mi avatar contra los datos\", \"quién me compra de verdad\", \"audita mi avatar\". No escribe contenido (pb-contenido), no fija oferta ni precio (pb-oferta), no conduce la llamada (pb-ventas) ni registra leads nuevos (pb-captura).", "archivo": "dist/pb-avatar.md", "fuente": "https://github.com/pvt-build/privatebuild-os/tree/main/skills/pb-avatar", "pagina": "https://privatebuild-os.vercel.app/sistemas/avatar", "palabras": 9775, "anexos": 4}, {"skill": "pb-contenido", "n": "04", "area": "Contenido", "slug": "marketing", "promesa": "Cómo llegan los correctos hasta ti", "frase": "qué publico esta semana", "senales": ["Publicas y no llegan conversaciones", "Dependes de un solo canal", "Cada semana partes de cero pensando qué publicar"], "necesitas": ["Claude o ChatGPT", "Notion (recomendado)", "Tus últimas publicaciones y sus números"], "estado": "lista", "resumen": "Que lo que publicas traiga a la persona que sí compra y filtre a la que no.", "descripcion": "Área 04 de Private Build OS: que lo que publicas traiga a la persona que sí compra y filtre a la que no. Construye la cadena de 7 tramos del contenido (materia prima, insight, gancho, pieza, petición, señal, vuelta), decide qué publicar esta semana según el dolor de tu avatar y lo que ya rindió, audita primeras líneas, saca piezas de un transcript y cierra el loop con un Veredicto Repetir, Ajustar o Matar en Notion. Úsala cuando digas \"qué publico esta semana\", \"arma mi mix de contenido\", \"audita estos ganchos\", \"dame primeras líneas para esto\", \"te pego la llamada, sácale piezas\", \"cierra el loop de lo que publiqué\", \"mi contenido no trae clientes\", \"diagnostica mi contenido\". No define a quién le hablas (pb-avatar), no arma la oferta ni el recurso que pides al final (pb-oferta), no responde ni califica los mensajes que llegan (pb-captura) y no decide la piel visual de tu marca.", "archivo": "dist/pb-contenido.md", "fuente": "https://github.com/pvt-build/privatebuild-os/tree/main/skills/pb-contenido", "pagina": "https://privatebuild-os.vercel.app/sistemas/marketing", "palabras": 10344, "anexos": 5}, {"skill": "pb-captura", "n": "05", "area": "Captura", "slug": "captura", "promesa": "Dónde quedan los que te escriben", "frase": "barre mi bandeja", "senales": ["La info de tus clientes está en tu cabeza o en chats", "Hay leads que quedaron sin respuesta", "No sabes de dónde llegó cada cliente"], "necesitas": ["Claude o ChatGPT", "Notion (recomendado)", "Pantallazos o chats exportados de Instagram, WhatsApp o LinkedIn"], "estado": "lista", "resumen": "Que nadie que te escribe se pierda en la bandeja.", "descripcion": "Área 05 de Private Build OS: que nadie que te escribe se pierda en la bandeja. Barre Instagram, WhatsApp, LinkedIn y email desde pantallazos o chats exportados, clasifica quién es lead y quién espera respuesta, y te deja una cola priorizada. Procesa un pantallazo y crea o actualiza la ficha del lead en Notion con etapa, dolor y próximo paso con fecha. Arma tu setting: 4 capas antes de dar hora, 7 desenlaces y seguimiento. Solo lectura: redacta borradores si se los pides, nunca envía nada. Úsala cuando digas \"barre mi bandeja\", \"revisa mis DMs\", \"quién quedó sin respuesta\", \"qué se me está perdiendo\", \"procesa este pantallazo\", \"entra este lead\", \"cómo le ofrezco la llamada\", \"audita mi follow-up\", \"diagnostica mi captura\". No conduce la llamada ni la propuesta (pb-ventas), no decide qué publicar (pb-contenido), no redefine a quién le vendes (pb-avatar).", "archivo": "dist/pb-captura.md", "fuente": "https://github.com/pvt-build/privatebuild-os/tree/main/skills/pb-captura", "pagina": "https://privatebuild-os.vercel.app/sistemas/captura", "palabras": 9446, "anexos": 4}, {"skill": "pb-ventas", "n": "06", "area": "Ventas", "slug": "ventas", "promesa": "Conducir la conversación hasta el sí", "frase": "prepárame para la llamada con [nombre]", "senales": ["Vendes sin guion ni seguimiento", "Pierdes llamadas sin saber en qué momento", "Tu pipeline no te dice a quién mover esta semana"], "necesitas": ["Claude o ChatGPT", "Notion (recomendado)", "El transcript de tus llamadas (Fathom, Zoom o Meet)"], "estado": "lista", "resumen": "Conducir la conversación hasta el sí.", "descripcion": "Área 06 · Ventas de Private Build OS: conducir la conversación hasta el sí. Arma tu guion de llamada (doble V, escala 1-10, logística de pago), te prepara cada llamada con una ficha de bolsillo, te da el reencuadre corto cuando el lead dice algo difícil, analiza el transcript (en qué fase se cayó, cuál fue la objeción real) y lo registra en 📞 Llamadas y 👥 Leads y clientes, hace de lead difícil en roleplay y limpia tu pipeline para decirte qué lead mover esta semana. Úsala cuando digas \"prepárame para la llamada con X\", \"el lead dijo X, qué le respondo\", \"analiza esta llamada\", \"hazme roleplay de objeción de precio\", \"qué lead muevo esta semana\", \"cómo está mi pipeline\", \"diagnostica mis ventas\", \"audita mi guion\". No arma la oferta ni fija el precio (pb-oferta), no califica ni agenda leads (pb-captura) y no entrega al cliente (pb-entrega).", "archivo": "dist/pb-ventas.md", "fuente": "https://github.com/pvt-build/privatebuild-os/tree/main/skills/pb-ventas", "pagina": "https://privatebuild-os.vercel.app/sistemas/ventas", "palabras": 11219, "anexos": 4}, {"skill": "pb-entrega", "n": "07", "area": "Entrega", "slug": "entrega", "promesa": "Cumplir sin que te cueste la semana", "frase": "diseña mi entrega", "senales": ["Siempre aparecen tareas nuevas", "Le explicas lo mismo a cada cliente", "La entrega te come la semana"], "necesitas": ["Claude o ChatGPT", "Notion (recomendado)", "Grabaciones o notas de tus sesiones con clientes"], "estado": "lista", "resumen": "Cumplir lo que vendiste sin que te cueste la semana.", "descripcion": "Área 07 · Entrega de Private Build OS — cumplir lo que vendiste sin que te cueste la semana. Arma promesa de entrega por fase, checklist de onboarding, roadmap por cliente, ritmo de sesiones, SOP de lo que se repite y cierre con paso a recompra. Baja cada sesión (Fathom, Zoom, Meet o notas) a Notion con compromisos, bloqueos y próximos pasos, y convierte en proceso lo que ya explicaste tres veces. Úsala cuando digas \"diseña mi entrega\", \"¿el onboarding de X está hecho?\", \"arma el roadmap de X\", \"baja esta sesión\", \"procesa este transcript\", \"prepárame para la sesión con X\", \"esto ya lo expliqué tres veces\", \"estoy entregando de más\", \"audita mi entrega\". No arma oferta ni precio (pb-oferta), no conduce la venta (pb-ventas), no mide renovación (pb- success).", "archivo": "dist/pb-entrega.md", "fuente": "https://github.com/pvt-build/privatebuild-os/tree/main/skills/pb-entrega", "pagina": "https://privatebuild-os.vercel.app/sistemas/entrega", "palabras": 8804, "anexos": 3}, {"skill": "pb-success", "n": "08", "area": "Success", "slug": "success", "promesa": "El loop que sostiene a los otros siete", "frase": "revisión del loop", "senales": ["Tus clientes no renuevan", "Te piden más y no se lo vendes", "No tienes casos de éxito con cifra"], "necesitas": ["Claude o ChatGPT", "Notion (recomendado)", "Un mes de datos: clientes, llamadas y contenido"], "estado": "lista", "resumen": "Área 08 · Success de Private Build OS, el loop que sostiene a las demás.", "descripcion": "Área 08 · Success de Private Build OS, el loop que sostiene a las demás. Mide si tus clientes vuelven a comprar con 4 medidores leídos del registro, procesa la base 🔁 Aprendizajes y devuelve cada corrección al área que la tiene que aplicar, marca el cuello, dice qué cliente está listo para renovar, subir o referir y cuál está en riesgo, y convierte un resultado real en caso de éxito con cifra y sistema. Úsala cuando digas \"revisión del loop\", \"procesa los aprendizajes\", \"qué área está fallando\", \"cuál es mi cuello\", \"quién va a renovar\", \"quién está en riesgo\", \"a quién le pido un referido\", \"mi cliente no renovó\", \"arma el caso de éxito de X\", \"diagnostica success\". No reescribe la oferta (pb-oferta), no redefine al avatar (pb- avatar), no produce contenido (pb-contenido), no rediseña la entrega (pb-entrega) ni conduce la llamada de renovación (pb-ventas): les entrega la corrección.", "archivo": "dist/pb-success.md", "fuente": "https://github.com/pvt-build/privatebuild-os/tree/main/skills/pb-success", "pagina": "https://privatebuild-os.vercel.app/sistemas/success", "palabras": 11098, "anexos": 4}]}</script>
+<script>
+const CAT=JSON.parse(document.getElementById('catalogo').textContent||'{}');
+const SK=CAT.skills||[];
+const WA='https://wa.me/56978048922?text=';
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function wa(msg){return WA+encodeURIComponent(msg)}
+$('#waTop').href=wa('Hola Patricio, vengo del marketplace de Private Build OS y quiero conversar sobre mi negocio.');
+$('#waLad').href=wa('Hola Patricio, vengo del marketplace de Private Build OS y me interesa construir las áreas con acompañamiento.');
+if(CAT.generado) $('#gen').textContent='Actualizado '+CAT.generado;
+
+/* ---------- toast + copiar ---------- */
+let tt;
+function toast(msg){const t=$('#toast');t.textContent=msg;t.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('on'),3800)}
+function legacyCopy(text){const ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();let ok=false;try{ok=document.execCommand('copy')}catch(e){}document.body.removeChild(ta);return ok}
+async function copyText(text){
+ if(navigator.clipboard&&navigator.clipboard.writeText){try{await navigator.clipboard.writeText(text);return true}catch(e){}}
+ return legacyCopy(text);
+}
+async function copySkill(s,btn){
+ const label=btn.textContent;
+ btn.textContent='Copiando…';
+ let ok=false;
+ try{
+  // ClipboardItem con promesa mantiene el gesto del usuario en Safari y Chrome
+  if(window.ClipboardItem&&navigator.clipboard&&navigator.clipboard.write){
+   const blob=fetch(s.archivo).then(r=>{if(!r.ok)throw new Error();return r.text()}).then(t=>new Blob([t],{type:'text/plain'}));
+   await navigator.clipboard.write([new ClipboardItem({'text/plain':blob})]);ok=true;
+  }
+ }catch(e){ok=false}
+ if(!ok){try{const r=await fetch(s.archivo);ok=r.ok&&await copyText(await r.text())}catch(e){ok=false}}
+ if(ok){btn.textContent='✓ Copiada';btn.classList.add('ok');toast('Copiada. Pégala en un chat nuevo de Claude o ChatGPT y escribe: "'+s.frase+'"');}
+ else{btn.textContent=label;toast('No se pudo copiar desde este navegador. Usa "Descargar .md" y súbelo al chat.');}
+ setTimeout(()=>{btn.textContent=label;btn.classList.remove('ok')},2600);
+}
+
+/* ---------- catálogo ---------- */
+function fmtWords(n){return '~'+Math.round(n/1000)+' mil palabras'}
+function card(s){
+ return `<article class="card" id="skill-${s.slug}" data-skill="${s.skill}">
+  <div class="hd"><div class="no"><span>${s.n} · ${esc(s.area)}</span><span class="tag" hidden>Tu cuello</span></div><h3>${esc(s.area)}</h3><div class="pr">${esc(s.promesa)}</div></div>
+  <div class="blk"><span class="k">La necesitas si</span><ul class="sig">${s.senales.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>
+  <div class="blk"><span class="k">Qué necesitas</span><ul>${s.necesitas.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>
+  <div class="blk"><span class="k">Frase de arranque</span><div class="frase"><span>${esc(s.frase)}</span><button class="mini" data-frase="${esc(s.frase)}">Copiar</button></div></div>
+  <div class="act"><button class="copy" data-copy="${s.skill}">Copiar skill · ${s.skill}</button><a class="link" href="${s.archivo}" download>Descargar .md</a><a class="link" href="${s.pagina}" target="_blank" rel="noopener">Leer el método ↗</a><span class="size">${fmtWords(s.palabras)}</span></div>
+ </article>`;
+}
+function entry(s){
+ return `<div class="entry card" id="skill-${s.slug}" data-skill="${s.skill}">
+  <div><div class="k"><b>${s.n} · Entrada</b></div><h3 style="font-size:24px;color:var(--ink);letter-spacing:-.02em;margin-top:4px">Private Build OS</h3><p style="color:var(--text);font-size:14px;margin-top:4px">${esc(s.promesa)}. Diagnostica las 8, arma tu Notion completo y te manda a la skill que toca.</p></div>
+  <div><span class="k" style="display:block;margin-bottom:6px">Frase de arranque</span><div class="frase"><span>${esc(s.frase)}</span><button class="mini" data-frase="${esc(s.frase)}">Copiar</button></div><p style="font-size:12px;color:var(--muted);margin-top:8px">${s.necesitas.map(esc).join(' · ')}</p></div>
+  <div style="display:flex;flex-direction:column;gap:6px;min-width:210px"><button class="copy" data-copy="${s.skill}">Copiar skill · ${s.skill}</button><a class="link" href="${s.archivo}" download style="text-align:center">Descargar .md · ${fmtWords(s.palabras)}</a></div>
+ </div>`;
+}
+const entrada=SK.find(s=>s.n==='00'), areas=SK.filter(s=>s.n!=='00');
+if(entrada) $('#entry').innerHTML=entry(entrada);
+$('#grid').innerHTML=areas.map(card).join('');
+document.addEventListener('click',e=>{
+ const c=e.target.closest('[data-copy]');
+ if(c){const s=SK.find(x=>x.skill===c.dataset.copy);if(s)copySkill(s,c);return}
+ const f=e.target.closest('[data-frase]');
+ if(f){copyText(f.dataset.frase).then(ok=>{toast(ok?'Frase copiada: "'+f.dataset.frase+'"':'No se pudo copiar')})}
+});
+
+/* ---------- diagnóstico (mismas 8 preguntas y regla que pb-os) ---------- */
+const QS=[
+ {slug:'foundations',q:'¿Tu negocio está formalizado?',o:[['Sí — con estructura legal y contabilidad al día',4],['Formalizado, pero la administración la llevo a medias',3],['Estoy en proceso de formalizarlo',2],['Opero a nombre personal, sin estructura',1]]},
+ {slug:'offer',q:'¿Tienes una oferta validada?',o:[['Sí — ya vendo más de 5 al mes',4],['La vendí un par de veces',3],['Está creada, pero aún no la vendo',2],['Aún no tengo una oferta',1]]},
+ {slug:'avatar',q:'¿A quién le vendes?',o:[['A un solo perfil, y lo tengo documentado',4],['A un solo perfil, pero vive en mi cabeza',3],['A perfiles distintos, sin uno claro',2],['Aún no lo defino',1]]},
+ {slug:'marketing',q:'¿Cómo llegan tus clientes?',multi:true,o:[['Contenido orgánico'],['Anuncios'],['Referidos'],['Mensajes en frío'],['Todavía no llegan']]},
+ {slug:'captura',q:'¿Dónde queda la información de tus clientes?',o:[['Todo automatizado',4],['Tengo un CRM que actualizo a mano',3],['Anotado, pero sin sistema',2],['En mi cabeza',1]]},
+ {slug:'ventas',q:'¿Cómo vendes?',o:[['Por llamada, con guion y seguimiento',4],['Por tienda o pasarela de pago',3],['En persona, sin un proceso fijo',2],['Aún no cierro ventas',1]]},
+ {slug:'entrega',q:'¿Cómo entregas el servicio?',o:[['Todo el proceso está documentado',4],['Lo entrega un equipo',3],['Lo estoy ordenando',2],['Siempre aparecen tareas nuevas',1]]},
+ {slug:'success',q:'¿Qué pasa después de entregar?',o:[['Mis clientes renuevan',4],['Piden más, pero no se lo vendo',3],['La mitad no logra el objetivo',2],['No hago nada después',1]]}
+];
+const NAME=Object.fromEntries(areas.map(s=>[s.slug,s]));
+let ans={};
+try{ans=JSON.parse(localStorage.getItem('pbos-diag-v1')||'{}')}catch(e){ans={}}
+function save(){try{localStorage.setItem('pbos-diag-v1',JSON.stringify(ans))}catch(e){}}
+function score(q){
+ const a=ans[q.slug];
+ if(q.multi){if(!a||!a.length)return null;if(a.includes(4))return 1;const n=a.length;return n>=3?4:n===2?3:2}
+ return a==null?null:q.o[a][1];
+}
+function renderQs(){
+ $('#qs').innerHTML=QS.map((q,qi)=>`<div class="q"><div class="qt"><span class="n">${String(qi+1).padStart(2,'0')}</span><span>${q.q}${q.multi?' <small>marca todas</small>':''}</span></div><div class="opts">${q.o.map((o,oi)=>{const on=q.multi?(ans[q.slug]||[]).includes(oi):ans[q.slug]===oi;return `<button class="opt" data-q="${qi}" data-o="${oi}" aria-pressed="${on}">${o[0]}</button>`}).join('')}</div></div>`).join('');
+}
+function cuello(sc){
+ if(sc.foundations!=null&&sc.foundations<=2) return 'foundations';
+ let best=null;
+ for(const q of QS){ if(q.slug==='success')continue; const v=sc[q.slug]; if(v==null)continue; if(best==null||v<sc[best])best=q.slug; }
+ return best;
+}
+function renderRes(){
+ const sc={};QS.forEach(q=>sc[q.slug]=score(q));
+ const done=QS.filter(q=>sc[q.slug]!=null).length;
+ const all=done===QS.length;
+ const c=all?cuello(sc):null;
+ const bars=QS.map(q=>{const v=sc[q.slug];const cls=v==null?'':v<=2?'bad':v===3?'mid':'good';return `<div class="bar ${cls}${c===q.slug?' cuello':''}"><span class="nm">${NAME[q.slug].area}</span><span class="tr"><i style="width:${v?v*25:0}%"></i></span><span class="sc">${v??'–'}</span></div>`}).join('');
+ let verd;
+ if(!all){verd=`<div class="verd"><p class="pending">Responde las 8 para ver tu cuello. Vas ${done} de 8.</p></div>`}
+ else if(c==null||sc[c]>=4){verd=`<div class="verd"><h3>Las 8 están construidas.</h3><p>Tu trabajo ahora es la octava: medir y devolver correcciones. Empieza por Success.</p><div class="btns"><a class="btn p s" href="#skill-success">Ir a Success</a></div></div>`}
+ else{
+  const s=NAME[c];
+  const why=c==='foundations'?'Ninguna capa de arriba se sostiene sobre una base sin resolver: marketing sobre esto es tráfico que se pierde.':'Es tu área más baja. Todo lo que hagas en las otras va a chocar contra esta.';
+  verd=`<div class="verd"><div class="k">Tu cuello</div><h3><em>${s.n} · ${s.area}</em> — ${esc(s.promesa.toLowerCase())}</h3><p>${why}</p><div class="btns"><button class="btn p s" data-copy="${s.skill}">Copiar skill · ${s.skill}</button><a class="btn s" href="#skill-${c}">Ver la tarjeta</a><a class="btn s" href="${wa('Hola Patricio, hice el diagnóstico en el marketplace de Private Build OS. Mi área rota es '+s.area+'.')}" target="_blank" rel="noopener">Hablarlo por WhatsApp</a></div></div>`;
+ }
+ $('#res').innerHTML=`<div class="k">Tu foto de hoy</div><div class="bars">${bars}</div>${verd}`;
+ document.querySelectorAll('.card[data-skill]').forEach(el=>{const on=!!c&&el.id==='skill-'+c&&sc[c]<4;el.classList.toggle('flag',on);const t=el.querySelector('.tag');if(t)t.hidden=!on});
+}
+$('#qs').addEventListener('click',e=>{
+ const b=e.target.closest('.opt');if(!b)return;
+ const q=QS[+b.dataset.q], oi=+b.dataset.o;
+ if(q.multi){
+  let a=ans[q.slug]||[];
+  const none=q.o.length-1;
+  if(oi===none) a=a.includes(none)?[]:[none];
+  else{a=a.filter(x=>x!==none);a=a.includes(oi)?a.filter(x=>x!==oi):a.concat(oi)}
+  ans[q.slug]=a;
+ } else ans[q.slug]=oi;
+ save();renderQs();renderRes();
+});
+renderQs();renderRes();
+</script>
+</body>
+</html>

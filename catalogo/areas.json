@@ -1,0 +1,105 @@
+{
+  "_nota": "Fuente de la vitrina. Una entrada por skill publicada. scripts/build.py cruza esto con skills/<skill>/SKILL.md y genera dist/. Para sumar una skill: crea su carpeta en skills/, agrega su entrada acá y corre python3 scripts/build.py.",
+  "sitio_areas": "https://privatebuild-os.vercel.app/sistemas/",
+  "skills": [
+    {
+      "skill": "pb-os",
+      "n": "00",
+      "area": "Entrada",
+      "slug": "sistemas",
+      "promesa": "Cuál de las 8 está rota hoy y qué se hace primero",
+      "frase": "arrancar private build os",
+      "senales": ["No sabes cuál de las 8 áreas está rota", "Sientes que estás armando todo al mismo tiempo", "Tu negocio no tiene un lugar donde quede escrito"],
+      "necesitas": ["Claude o ChatGPT", "Notion conectado (arma tu espacio completo)", "15 minutos"],
+      "estado": "lista"
+    },
+    {
+      "skill": "pb-foundations",
+      "n": "01",
+      "area": "Foundations",
+      "slug": "foundations",
+      "promesa": "La lógica del negocio y hacia dónde va",
+      "frase": "diagnostica mis foundations",
+      "senales": ["Operas a tu nombre o sin contabilidad al día", "Las decisiones grandes salen del ánimo del día", "Tu modelo de negocio vive solo en tu cabeza"],
+      "necesitas": ["Claude o ChatGPT", "Notion (recomendado)", "30 minutos a solas para las preguntas del centro"],
+      "estado": "lista"
+    },
+    {
+      "skill": "pb-oferta",
+      "n": "02",
+      "area": "Oferta",
+      "slug": "offer",
+      "promesa": "Qué vendes y a qué precio",
+      "frase": "arma mi oferta",
+      "senales": ["Te dicen \"lo pienso\" y no sabes por qué", "Te negocian el precio", "Entregas más de lo que cobras"],
+      "necesitas": ["Claude o ChatGPT", "Notion (recomendado)", "Tu oferta actual o tu última propuesta, aunque esté floja"],
+      "estado": "lista"
+    },
+    {
+      "skill": "pb-avatar",
+      "n": "03",
+      "area": "Avatar",
+      "slug": "avatar",
+      "promesa": "A quién le vendes y a quién no",
+      "frase": "arma mi avatar",
+      "senales": ["Le vendes a perfiles distintos sin uno claro", "Te llegan leads que no son para ti", "Tu cliente ideal vive en tu cabeza"],
+      "necesitas": ["Claude o ChatGPT", "Notion (recomendado)", "La lista de tus últimos clientes: quién pagó completo, quién renovó"],
+      "estado": "lista"
+    },
+    {
+      "skill": "pb-contenido",
+      "n": "04",
+      "area": "Contenido",
+      "slug": "marketing",
+      "promesa": "Cómo llegan los correctos hasta ti",
+      "frase": "qué publico esta semana",
+      "senales": ["Publicas y no llegan conversaciones", "Dependes de un solo canal", "Cada semana partes de cero pensando qué publicar"],
+      "necesitas": ["Claude o ChatGPT", "Notion (recomendado)", "Tus últimas publicaciones y sus números"],
+      "estado": "lista"
+    },
+    {
+      "skill": "pb-captura",
+      "n": "05",
+      "area": "Captura",
+      "slug": "captura",
+      "promesa": "Dónde quedan los que te escriben",
+      "frase": "barre mi bandeja",
+      "senales": ["La info de tus clientes está en tu cabeza o en chats", "Hay leads que quedaron sin respuesta", "No sabes de dónde llegó cada cliente"],
+      "necesitas": ["Claude o ChatGPT", "Notion (recomendado)", "Pantallazos o chats exportados de Instagram, WhatsApp o LinkedIn"],
+      "estado": "lista"
+    },
+    {
+      "skill": "pb-ventas",
+      "n": "06",
+      "area": "Ventas",
+      "slug": "ventas",
+      "promesa": "Conducir la conversación hasta el sí",
+      "frase": "prepárame para la llamada con [nombre]",
+      "senales": ["Vendes sin guion ni seguimiento", "Pierdes llamadas sin saber en qué momento", "Tu pipeline no te dice a quién mover esta semana"],
+      "necesitas": ["Claude o ChatGPT", "Notion (recomendado)", "El transcript de tus llamadas (Fathom, Zoom o Meet)"],
+      "estado": "lista"
+    },
+    {
+      "skill": "pb-entrega",
+      "n": "07",
+      "area": "Entrega",
+      "slug": "entrega",
+      "promesa": "Cumplir sin que te cueste la semana",
+      "frase": "diseña mi entrega",
+      "senales": ["Siempre aparecen tareas nuevas", "Le explicas lo mismo a cada cliente", "La entrega te come la semana"],
+      "necesitas": ["Claude o ChatGPT", "Notion (recomendado)", "Grabaciones o notas de tus sesiones con clientes"],
+      "estado": "lista"
+    },
+    {
+      "skill": "pb-success",
+      "n": "08",
+      "area": "Success",
+      "slug": "success",
+      "promesa": "El loop que sostiene a los otros siete",
+      "frase": "revisión del loop",
+      "senales": ["Tus clientes no renuevan", "Te piden más y no se lo vendes", "No tienes casos de éxito con cifra"],
+      "necesitas": ["Claude o ChatGPT", "Notion (recomendado)", "Un mes de datos: clientes, llamadas y contenido"],
+      "estado": "lista"
+    }
+  ]
+}
