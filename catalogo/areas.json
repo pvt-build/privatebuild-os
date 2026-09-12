@@ -1,105 +1,103 @@
 {
-  "_nota": "Fuente de la vitrina. Una entrada por skill publicada. scripts/build.py cruza esto con skills/<skill>/SKILL.md y genera dist/. Para sumar una skill: crea su carpeta en skills/, agrega su entrada acá y corre python3 scripts/build.py.",
+  "_nota": "Fuente única del marketplace. 'areas' = las tarjetas de la vitrina (una por área + la base). 'arsenal' = todas las skills transferibles de Private Build, colgadas de su área. estado 'disponible' exige skills/<skill>/SKILL.md. Para sumar o liberar una skill: edita acá y corre python3 scripts/build.py (regenera dist/, la vitrina y el mapa de pvt-arsenal-agent). Las skills privadas (relación, finanzas, asistente) no entran nunca.",
   "sitio_areas": "https://privatebuild-os.vercel.app/sistemas/",
-  "skills": [
+  "areas": [
     {
-      "skill": "pb-os",
-      "n": "00",
-      "area": "Entrada",
-      "slug": "sistemas",
-      "promesa": "Cuál de las 8 está rota hoy y qué se hace primero",
-      "frase": "arrancar private build os",
-      "senales": ["No sabes cuál de las 8 áreas está rota", "Sientes que estás armando todo al mismo tiempo", "Tu negocio no tiene un lugar donde quede escrito"],
-      "necesitas": ["Claude o ChatGPT", "Notion conectado (arma tu espacio completo)", "15 minutos"],
-      "estado": "lista"
+      "n": "00", "area": "Base del sistema", "slug": "sistemas", "duena": "pvt-arsenal-agent",
+      "promesa": "El mapa de las 8 áreas y el repositorio donde vive lo validado",
+      "senales": ["No sabes cuál de las 8 áreas está rota", "Cada chat con la IA empieza de cero", "La IA te responde con datos que no son de tu negocio"],
+      "necesitas": ["Claude o ChatGPT", "Un repositorio: tu máquina, tu Notion o Google Drive", "15 minutos"]
     },
     {
-      "skill": "pb-foundations",
-      "n": "01",
-      "area": "Foundations",
-      "slug": "foundations",
+      "n": "01", "area": "Foundations", "slug": "foundations", "duena": "pvt-founder-agent",
       "promesa": "La lógica del negocio y hacia dónde va",
-      "frase": "diagnostica mis foundations",
       "senales": ["Operas a tu nombre o sin contabilidad al día", "Las decisiones grandes salen del ánimo del día", "Tu modelo de negocio vive solo en tu cabeza"],
-      "necesitas": ["Claude o ChatGPT", "Notion (recomendado)", "30 minutos a solas para las preguntas del centro"],
-      "estado": "lista"
+      "necesitas": ["Claude o ChatGPT", "Tu repositorio (recomendado)", "30 minutos a solas para las preguntas del centro"]
     },
     {
-      "skill": "pb-oferta",
-      "n": "02",
-      "area": "Oferta",
-      "slug": "offer",
+      "n": "02", "area": "Oferta", "slug": "offer", "duena": "pvt-offer-agent",
       "promesa": "Qué vendes y a qué precio",
-      "frase": "arma mi oferta",
       "senales": ["Te dicen \"lo pienso\" y no sabes por qué", "Te negocian el precio", "Entregas más de lo que cobras"],
-      "necesitas": ["Claude o ChatGPT", "Notion (recomendado)", "Tu oferta actual o tu última propuesta, aunque esté floja"],
-      "estado": "lista"
+      "necesitas": ["Claude o ChatGPT", "Tu repositorio (recomendado)", "Tu oferta actual o tu última propuesta, aunque esté floja"]
     },
     {
-      "skill": "pb-avatar",
-      "n": "03",
-      "area": "Avatar",
-      "slug": "avatar",
+      "n": "03", "area": "Avatar", "slug": "avatar", "duena": "pvt-avatar-agent",
       "promesa": "A quién le vendes y a quién no",
-      "frase": "arma mi avatar",
       "senales": ["Le vendes a perfiles distintos sin uno claro", "Te llegan leads que no son para ti", "Tu cliente ideal vive en tu cabeza"],
-      "necesitas": ["Claude o ChatGPT", "Notion (recomendado)", "La lista de tus últimos clientes: quién pagó completo, quién renovó"],
-      "estado": "lista"
+      "necesitas": ["Claude o ChatGPT", "Tu repositorio (recomendado)", "La lista de tus últimos clientes: quién pagó completo, quién renovó"]
     },
     {
-      "skill": "pb-contenido",
-      "n": "04",
-      "area": "Contenido",
-      "slug": "marketing",
+      "n": "04", "area": "Contenido", "slug": "marketing", "duena": "pvt-content-agent",
       "promesa": "Cómo llegan los correctos hasta ti",
-      "frase": "qué publico esta semana",
       "senales": ["Publicas y no llegan conversaciones", "Dependes de un solo canal", "Cada semana partes de cero pensando qué publicar"],
-      "necesitas": ["Claude o ChatGPT", "Notion (recomendado)", "Tus últimas publicaciones y sus números"],
-      "estado": "lista"
+      "necesitas": ["Claude o ChatGPT", "Tu repositorio (recomendado)", "Tus últimas publicaciones y sus números"]
     },
     {
-      "skill": "pb-captura",
-      "n": "05",
-      "area": "Captura",
-      "slug": "captura",
+      "n": "05", "area": "Captura", "slug": "captura", "duena": "pvt-setter-agent",
       "promesa": "Dónde quedan los que te escriben",
-      "frase": "barre mi bandeja",
       "senales": ["La info de tus clientes está en tu cabeza o en chats", "Hay leads que quedaron sin respuesta", "No sabes de dónde llegó cada cliente"],
-      "necesitas": ["Claude o ChatGPT", "Notion (recomendado)", "Pantallazos o chats exportados de Instagram, WhatsApp o LinkedIn"],
-      "estado": "lista"
+      "necesitas": ["Claude o ChatGPT", "Tu repositorio (recomendado)", "Pantallazos o chats exportados de Instagram, WhatsApp o LinkedIn"]
     },
     {
-      "skill": "pb-ventas",
-      "n": "06",
-      "area": "Ventas",
-      "slug": "ventas",
+      "n": "06", "area": "Ventas", "slug": "ventas", "duena": "pvt-closing-agent",
       "promesa": "Conducir la conversación hasta el sí",
-      "frase": "prepárame para la llamada con [nombre]",
       "senales": ["Vendes sin guion ni seguimiento", "Pierdes llamadas sin saber en qué momento", "Tu pipeline no te dice a quién mover esta semana"],
-      "necesitas": ["Claude o ChatGPT", "Notion (recomendado)", "El transcript de tus llamadas (Fathom, Zoom o Meet)"],
-      "estado": "lista"
+      "necesitas": ["Claude o ChatGPT", "Tu repositorio (recomendado)", "El transcript de tus llamadas (Fathom, Zoom o Meet)"]
     },
     {
-      "skill": "pb-entrega",
-      "n": "07",
-      "area": "Entrega",
-      "slug": "entrega",
+      "n": "07", "area": "Entrega", "slug": "entrega", "duena": "pvt-consulting-agent",
       "promesa": "Cumplir sin que te cueste la semana",
-      "frase": "diseña mi entrega",
       "senales": ["Siempre aparecen tareas nuevas", "Le explicas lo mismo a cada cliente", "La entrega te come la semana"],
-      "necesitas": ["Claude o ChatGPT", "Notion (recomendado)", "Grabaciones o notas de tus sesiones con clientes"],
-      "estado": "lista"
+      "necesitas": ["Claude o ChatGPT", "Tu repositorio (recomendado)", "Grabaciones o notas de tus sesiones con clientes"]
     },
     {
-      "skill": "pb-success",
-      "n": "08",
-      "area": "Success",
-      "slug": "success",
+      "n": "08", "area": "Success", "slug": "success", "duena": "pvt-success-agent",
       "promesa": "El loop que sostiene a los otros siete",
-      "frase": "revisión del loop",
       "senales": ["Tus clientes no renuevan", "Te piden más y no se lo vendes", "No tienes casos de éxito con cifra"],
-      "necesitas": ["Claude o ChatGPT", "Notion (recomendado)", "Un mes de datos: clientes, llamadas y contenido"],
-      "estado": "lista"
+      "necesitas": ["Claude o ChatGPT", "Tu repositorio (recomendado)", "Un mes de datos: clientes, llamadas y contenido"]
     }
+  ],
+  "arsenal": [
+    {"skill": "pvt-arsenal-agent", "n": "00", "estado": "disponible", "frase": "arrancar private build os", "para_que": "El mapa: diagnostica tus 8 áreas, encuentra el cuello y te dice qué skill usar y en qué orden."},
+    {"skill": "pvt-backend-agent", "n": "00", "estado": "disponible", "frase": "arma mi repositorio", "para_que": "Tu repositorio: guarda lo validado en tu máquina, Notion o la nube, y hace que la IA verifique en vez de inventar."},
+
+    {"skill": "pvt-founder-agent", "n": "01", "estado": "disponible", "frase": "diagnostica mis foundations", "para_que": "Audita cada decisión grande contra 8 criterios y mantiene vivo tu Documento de contexto."},
+    {"skill": "pvt-leverage-agent", "n": "01", "estado": "proximamente", "para_que": "Qué decisión compone más retorno: operativo, financiero, humano, relacional o temporal."},
+    {"skill": "pvt-architect-agent", "n": "01", "estado": "proximamente", "para_que": "Cómo está armado tu negocio por capas, como un cuerpo: qué sostiene y qué falta."},
+    {"skill": "pvt-advisor-agent", "n": "01", "estado": "proximamente", "para_que": "Consejo en frío para conflictos, socios y negociaciones."},
+    {"skill": "pvt-backlog-agent", "n": "01", "estado": "proximamente", "para_que": "Tus pendientes como cola con dueño y bloqueo real, no como lista infinita."},
+    {"skill": "pvt-voice-agent", "n": "01", "estado": "proximamente", "para_que": "Entiende lo que quieres decir y sostiene tu voz en todo lo que escribes."},
+    {"skill": "pvt-athlete-agent", "n": "01", "estado": "proximamente", "para_que": "Tu cuerpo como herramienta: entreno, sueño y energía medidos."},
+
+    {"skill": "pvt-offer-agent", "n": "02", "estado": "disponible", "frase": "arma mi oferta", "para_que": "Los 10 bloques de una oferta que se vende sola, y el pitch para cada lead."},
+
+    {"skill": "pvt-avatar-agent", "n": "03", "estado": "disponible", "frase": "arma mi avatar", "para_que": "A quién le vendes, a quién dejas ir, y si el lead de hoy es para ti."},
+
+    {"skill": "pvt-content-agent", "n": "04", "estado": "disponible", "frase": "qué publico esta semana", "para_que": "Qué publicar cada semana según el dolor de tu avatar y lo que ya rindió."},
+    {"skill": "pvt-hooks-agent", "n": "04", "estado": "proximamente", "para_que": "Primeras líneas que frenan el scroll del cliente correcto."},
+    {"skill": "pvt-carousels-agent", "n": "04", "estado": "proximamente", "para_que": "Carruseles sobre una estructura que ya se probó."},
+    {"skill": "pvt-gems-agent", "n": "04", "estado": "proximamente", "para_que": "Saca las ideas publicables de una llamada o una sesión."},
+    {"skill": "pvt-visuals-agent", "n": "04", "estado": "proximamente", "para_que": "Qué figura explica mejor tu idea, antes de diseñarla."},
+    {"skill": "pvt-design-agent", "n": "04", "estado": "proximamente", "para_que": "Tu sistema visual aplicado a cada pieza."},
+    {"skill": "pvt-motion-agent", "n": "04", "estado": "proximamente", "para_que": "Video con IA: captura, edición y subtítulos."},
+
+    {"skill": "pvt-setter-agent", "n": "05", "estado": "disponible", "frase": "barre mi bandeja", "para_que": "Que nadie que te escribe se pierda: clasifica la bandeja y deja cada lead con próximo paso."},
+    {"skill": "pvt-intake-agent", "n": "05", "estado": "proximamente", "para_que": "Un pantallazo, tres salidas: ficha del lead, idea de contenido y respuesta."},
+
+    {"skill": "pvt-closing-agent", "n": "06", "estado": "disponible", "frase": "prepárame para la llamada con [nombre]", "para_que": "Tu guion de llamada, la ficha antes de cada una y el análisis después."},
+    {"skill": "pvt-discovery-agent", "n": "06", "estado": "proximamente", "para_que": "Investiga al lead antes de la llamada y te deja solo las preguntas que faltan."},
+    {"skill": "pvt-crm-agent", "n": "06", "estado": "proximamente", "para_que": "La salud de tu pipeline y tu cliente ideal medido contra datos reales."},
+    {"skill": "pvt-cco-agent", "n": "06", "estado": "proximamente", "para_que": "El ciclo comercial completo: contacto, discovery, propuesta y cierre."},
+    {"skill": "pvt-proof-agent", "n": "06", "estado": "proximamente", "para_que": "Convierte un resultado real en una prueba que el lead puede ver."},
+    {"skill": "pvt-funnel-agent", "n": "06", "estado": "proximamente", "para_que": "Dónde se rompe tu embudo, de contenido a venta, con métricas."},
+    {"skill": "pvt-ux-agent", "n": "06", "estado": "proximamente", "para_que": "Que tu landing se entienda y convierta."},
+
+    {"skill": "pvt-consulting-agent", "n": "07", "estado": "disponible", "frase": "diseña mi entrega", "para_que": "Onboarding, roadmap, sesiones y procesos: cumplir sin que te coma la semana."},
+    {"skill": "pvt-fathom-agent", "n": "07", "estado": "proximamente", "para_que": "Baja cada llamada grabada a su lugar, sin copiar y pegar."},
+    {"skill": "pvt-infoproduct-agent", "n": "07", "estado": "proximamente", "para_que": "Empaqueta lo que ya enseñas en un producto que escala sin horas 1:1."},
+
+    {"skill": "pvt-success-agent", "n": "08", "estado": "disponible", "frase": "revisión del loop", "para_que": "Mide si tus clientes vuelven, devuelve cada corrección a su área y arma tus casos de éxito."},
+    {"skill": "pvt-growth-agent", "n": "08", "estado": "proximamente", "para_que": "Qué pieza rindió de verdad en tus redes y qué repetir."},
+    {"skill": "pvt-comunidad-agent", "n": "08", "estado": "proximamente", "para_que": "El ritual semanal que retiene clientes y trae referidos."}
   ]
 }
